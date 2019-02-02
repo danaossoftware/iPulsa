@@ -1,0 +1,7 @@
+.message:active {
+    background-color: #eeeeee;
+}
+
+#send-message:active {
+    background-color: #047787;
+}

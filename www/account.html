@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="cordova.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/account.js"></script>
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/account.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: #e5e5e5;">
+<div style="width: 100%; height: 100%; display: flex; flex-flow: column nowrap;">
+    <div id="titlebar" style="width: 100%; z-index: 1000; position: fixed; left: 0; top: 0;"></div>
+    <div style="width: 100%; height: 100%; display: flex; flex-flow: column nowrap;">
+        <div style="margin-top: 60px; width: calc(100% - 100px); display: flex; flex-flow: row nowrap; justify-content: space-around; padding-left: 50px; padding-right: 50px;">
+            <div style="width: 33%; display: flex; flex-flow: column nowrap; align-items: center;">
+                <div style="color: black; font-size: 13px;">Posting</div>
+                <div style="width: 60px; height: 60px; background-color: #049aa9; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                    <div id="post-count" style="color: white; font-weight: bold;; font-size: 20px;">0</div>
+                </div>
+            </div>
+            <div style="width: 33%; display: flex; flex-flow: column nowrap; align-items: center;">
+                <div style="color: black; font-size: 13px;">Pengikut</div>
+                <div style="width: 60px; height: 60px; background-color: #049aa9; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                    <div id="follower-count" style="color: white; font-weight: bold;; font-size: 20px;">0
+                    </div>
+                </div>
+            </div>
+            <div style="width: 33%; margin-left: 15px; display: flex; flex-flow: column nowrap; align-items: center;">
+                <div style="color: black; font-size: 13px;">Mengikuti</div>
+                <div style="width: 60px; height: 60px; background-color: #049aa9; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                    <div id="following-count" style="color: white; font-weight: bold;; font-size: 20px;">0
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="position: relative; width: 100%; height: 100%;">
+            <div id="posts" style="position: absolute; left: 0; top: 0; width: 100%; margin-top: 20px; display: flex; flex-flow: row wrap;"></div>
+            <div id="no-post-container" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: none; justify-content: center; align-items: center;">
+                <div style="color: black;">Tidak ada postingan</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="settings" style="z-index: 2000;"></div>
+<div id="loading-container"
+     style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .5); display: flex; justify-content: center; align-items: center;">
+    <div style="width: 150px; height: 150px; display: flex; justify-content: center; align-items: center; background-color: white; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .5);">
+        <div class="loader"></div>
+    </div>
+</div>
+<div id="post-container"
+     style="position: absolute; left: 0; top: 0; width: 100%; height:100%; background-color: rgba(0, 0, 0, .5); display: none; justify-content: center; align-items: center;">
+    <div style="width: 300px; border-radius: 5px; background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .3); display: flex; flex-flow: column nowrap;">
+        <img id="post-preview-img" width="100%" height="300px"
+             style="background-color: black; border-top-left-radius: 5px; border-top-right-radius: 5px;">
+        <div style="width: 100%; display: flex; flex-flow: row nowrap; height: 40px;">
+            <div id="like-post" class="post-menu-item"
+                 style="width: 33%; display: flex; justify-content: center; align-items: center; border-bottom-left-radius: 5px;">
+                <img id="like-img" src="img/unlike.png" width="20px" height="20px">
+            </div>
+            <div id="comment" class="post-menu-item"
+                 style="width: 33%; display: flex; justify-content: center; align-items: center;">
+                <img src="img/messages-3.png" width="20px" height="20px">
+            </div>
+            <div id="share-post" class="post-menu-item"
+                 style="width: 34%; display: flex; justify-content: center; align-items: center; border-bottom-right-radius: 5px;">
+                <img src="img/share.png" width="20px" height="20px">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

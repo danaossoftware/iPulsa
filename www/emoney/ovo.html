@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="cordova.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/global.js"></script>
+    <script src="../js/ovo.js"></script>
+    <link href="../css/global.css" rel="stylesheet">
+    <link href="../css/ovo.css" rel="stylesheet">
+</head>
+<body>
+<div style="width: 100%; height: 100%; display: flex; flex-flow: column nowrap;">
+    <div style="width: 100%; height: 50px; background-color: #069caa; display: flex; flex-flow: row nowrap; align-items: center;">
+        <div id="back" onclick="window.history.back()"
+             style="width: 50px; height: 100%; display: flex; justify-content: center; align-items: center;">
+            <img src="img/back-2.png" width="20px" height="20px">
+        </div>
+        <div style="margin-left: 10px; color: white; font-size: 20px;">PLN</div>
+    </div>
+    <div style="width: 100%; height: 50px; display: flex; flex-flow: row nowrap; align-items: center;">
+        <div onclick="selectovoPanel()" id="ovo"
+             style="width: 33%; height: 100%; display: flex; justify-content: center; align-items: center; color: #393939; position: relative;">
+            OVO
+            <div id="ovo-indicator" style="position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background-color: #069caa;"></div>
+        </div>
+        <div onclick="selectt-cashPanel()" id="t-cash"
+             style="width: 33%; height: 100%; display: flex; justify-content: center; align-items: center; color: #848484; position: relative;">
+            T-CASH
+            <div id="t-cash-indicator" style="display: none; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background-color: #069caa;"></div>
+        </div>
+        <div onclick="selectNonTaglisPanel()" id="dana"
+             style="width: 33%; height: 100%; display: flex; justify-content: center; align-items: center; color: #848484; position: relative;">
+            DANA
+            <div id="dana-indicator" style="display: none; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background-color: #069caa;"></div>
+        </div>
+    </div>
+    <div id="ovo-panel" style="position: absolute; left: 0; top: 100px; width: 100%; display: flex; flex-flow: column nowrap;">
+        <div style="margin-left: 20px; margin-top: 5px; color: black;">Masukkan ID pelanggan/No. Meter</div>
+        <input class="input2" style="width: calc(100% - 60px); padding-left: 10px; padding-right: 10px; margin-left: 20px; margin-right: 20px;" id="ovo-id-pelanggan"
+               name="id-pelanggan" type="text">
+        <div style="width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; border-radius: 15px; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); display: flex; flex-flow: column nowrap; margin-top: 20px;">
+            <div style="width: 100%; display: flex; flex-flow: row nowrap; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                <div onclick="selectovoPackage(0)" id="ovo-listrik-20"
+                     style="width: 50%; height: 80px; background-color: #069caa; display: flex; justify-content: center; align-items: center; color: white; flex-flow: row nowrap; border-top-left-radius: 15px;">
+                    <div style="font-size: 30px; font-weight: bold;;">20.</div>
+                    <div style="font-size: 20px; margin-top: 10px;">000</div>
+                </div>
+                <div onclick="selectovoPackage(1)" id="ovo-listrik-50"
+                     style="width: 50%; height: 80px; display: flex; justify-content: center; align-items: center; color: #069caa; flex-flow: row nowrap; border-top-right-radius: 15px;">
+                    <div style="font-size: 30px; font-weight: bold;;">50.</div>
+                    <div style="font-size: 20px; margin-top: 10px;">000</div>
+                </div>
+            </div>
+            <div style="width: 100%; display: flex; flex-flow: row nowrap;">
+                <div onclick="selectovoPackage(2)" id="ovo-listrik-100"
+                     style="width: 50%; height: 80px; display: flex; justify-content: center; align-items: center; color: #069caa; flex-flow: row nowrap;">
+                    <div style="font-size: 30px; font-weight: bold;;">100.</div>
+                    <div style="font-size: 20px; margin-top: 10px;">000</div>
+                </div>
+                <div onclick="selectovoPackage(3)" id="ovo-listrik-200"
+                     style="width: 50%; height: 80px; display: flex; justify-content: center; align-items: center; color: #069caa; flex-flow: row nowrap;">
+                    <div style="font-size: 30px; font-weight: bold;;">200.</div>
+                    <div style="font-size: 20px; margin-top: 10px;">000</div>
+                </div>
+            </div>
+            <div style="width: 100%; display: flex; flex-flow: row nowrap; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+                <div onclick="selectovoPackage(4)" id="ovo-listrik-500"
+                     style="width: 50%; height: 80px; display: flex; justify-content: center; align-items: center; color: #069caa; flex-flow: row nowrap; border-bottom-left-radius: 15px;">
+                    <div style="font-size: 30px; font-weight: bold;;">500.</div>
+                    <div style="font-size: 20px; margin-top: 10px;">000</div>
+                </div>
+                <div onclick="selectovoPackage(5)" id="ovo-listrik-1000"
+                     style="width: 50%; height: 80px; display: flex; justify-content: center; align-items: center; color: #069caa; flex-flow: row nowrap; border-bottom-right-radius: 15px;">
+                    <div style="font-size: 30px; font-weight: bold;;">1.000.</div>
+                    <div style="font-size: 20px; margin-top: 10px;">000</div>
+                </div>
+            </div>
+        </div>
+        <div style="position: relative; margin-top: 20px; margin-left: 20px; margin-right: 20px; height: 40px;">
+            <div style="position: absolute; left: 0; top: 0; color: black; margin-top: 20px;">Harga</div>
+            <div style="position: absolute; right: 0; top: 0; color: #069caa; margin-top: 20px;">Rp0</div>
+        </div>
+        <button class="button2"
+                style="width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; margin-top: 10px; margin-bottom: 20px;">Beli
+        </button>
+    </div>
+    <div id="t-cash-panel" style="display: none; position: absolute; left: 0; top: 100px; width: 100%; flex-flow: column nowrap;">
+        <div style="margin-left: 20px; margin-top: 5px; color: black;">Masukkan ID pelanggan/No. Meter</div>
+        <input class="input2" style="width: calc(100% - 60px); padding-left: 10px; padding-right: 10px; margin-left: 20px; margin-right: 20px;" id="t-cash-id-pelanggan"
+               name="id-pelanggan" type="text">
+        <div style="width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; border-radius: 15px; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); display: flex; flex-flow: column nowrap; margin-top: 20px;">
+            <div style="width: 100%; display: flex; flex-flow: row nowrap; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                <div onclick="selectt-cashPackage(0)" id="t-cash-listrik-450"
+                     style="width: 50%; height: 80px; background-color: #069caa; display: flex; justify-content: center; align-items: center; color: white; flex-flow: row nowrap; border-top-left-radius: 15px;">
+                    <div style="font-size: 30px; font-weight: bold;;">450</div>
+                    <div style="font-size: 20px; margin-top: 10px;">VA</div>
+                </div>
+                <div onclick="selectt-cashPackage(1)" id="t-cash-listrik-900"
+                     style="width: 50%; height: 80px; display: flex; justify-content: center; align-items: center; color: #069caa; flex-flow: row nowrap; border-top-right-radius: 15px;">
+                    <div style="font-size: 30px; font-weight: bold;;">900</div>
+                    <div style="font-size: 20px; margin-top: 10px;">VA</div>
+                </div>
+            </div>
+            <div style="width: 100%; display: flex; flex-flow: row nowrap;">
+                <div onclick="selectt-cashPackage(2)" id="t-cash-listrik-1300"
+                     style="width: 50%; height: 80px; display: flex; justify-content: center; align-items: center; color: #069caa; flex-flow: row nowrap;">
+                    <div style="font-size: 30px; font-weight: bold;;">1300</div>
+                    <div style="font-size: 20px; margin-top: 10px;">VA</div>
+                </div>
+                <div onclick="selectt-cashPackage(3)" id="t-cash-listrik-2200"
+                     style="width: 50%; height: 80px; display: flex; justify-content: center; align-items: center; color: #069caa; flex-flow: row nowrap;">
+                    <div style="font-size: 30px; font-weight: bold;;">2200</div>
+                    <div style="font-size: 20px; margin-top: 10px;">VA</div>
+                </div>
+            </div>
+            <div style="width: 100%; display: flex; flex-flow: row nowrap; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+                <div onclick="selectt-cashPackage(4)" id="t-cash-listrik-3500"
+                     style="width: 50%; height: 80px; display: flex; justify-content: center; align-items: center; color: #069caa; flex-flow: row nowrap; border-bottom-left-radius: 15px;">
+                    <div style="font-size: 30px; font-weight: bold;;">3500</div>
+                    <div style="font-size: 20px; margin-top: 10px;">VA</div>
+                </div>
+                <div onclick="selectt-cashPackage(5)" id="t-cash-listrik-6600"
+                     style="width: 50%; height: 80px; display: flex; justify-content: center; align-items: center; color: #069caa; flex-flow: row nowrap; border-bottom-right-radius: 15px;">
+                    <div style="font-size: 30px; font-weight: bold;;">6600</div>
+                    <div style="font-size: 20px; margin-top: 10px;">VA</div>
+                </div>
+            </div>
+        </div>
+        <div style="position: relative; margin-top: 20px; margin-left: 20px; margin-right: 20px; height: 40px;">
+            <div style="position: absolute; left: 0; top: 0; color: black; margin-top: 20px;">Harga</div>
+            <div style="position: absolute; right: 0; top: 0; color: #069caa; margin-top: 20px;">Rp0</div>
+        </div>
+        <button class="button2"
+                style="width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; margin-top: 10px; margin-bottom: 20px;">Beli
+        </button>
+    </div>
+    <div id="dana-panel" style="display: none; position: absolute; left: 0; top: 100px; width: 100%; flex-flow: column nowrap;">
+        <div style="margin-left: 20px; margin-top: 5px; color: black;">Masukkan ID pelanggan/No. Meter</div>
+        <input class="input2" style="width: calc(100% - 60px); padding-left: 10px; padding-right: 10px; margin-left: 20px; margin-right: 20px;" id="dana-id-pelanggan"
+               name="id-pelanggan" type="text">
+        <div style="width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; border-radius: 15px; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); display: flex; flex-flow: column nowrap; margin-top: 20px;">
+            <div id="dana-type-0" onclick="selectNonTaglisType(0)" style="width: 100%; height: 80px; border-top-left-radius: 15px; border-top-right-radius: 15px; background-color: #069caa; display: flex; justify-content: center; align-items: center; color: white;">
+                Sambungan Baru
+            </div>
+            <div id="dana-type-1" onclick="selectNonTaglisType(1)" style="width: 100%; height: 80px; background-color: white; display: flex; justify-content: center; align-items: center; color: #069caa;">
+                Ubah Daya
+            </div>
+            <div id="dana-type-2" onclick="selectNonTaglisType(2)" style="width: 100%; height: 80px; background-color: white; display: flex; justify-content: center; align-items: center; color: #069caa;">
+                Migrasi
+            </div>
+            <div id="dana-type-3" onclick="selectNonTaglisType(3)" style="width: 100%; height: 80px; background-color: white; display: flex; justify-content: center; align-items: center; color: #069caa;">
+                Pemasangan Kembali
+            </div>
+            <div id="dana-type-4" onclick="selectNonTaglisType(4)" style="width: 100%; height: 80px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; background-color: white; display: flex; justify-content: center; align-items: center; color: #069caa;">
+                Penerangan Sementara
+            </div>
+        </div>
+        <button class="button2"
+                style="width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px;">Beli
+        </button>
+    </div>
+</div>
+</body>
+</html>

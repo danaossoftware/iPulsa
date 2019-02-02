@@ -1,0 +1,15 @@
+.checkbox {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid black;
+}
+
+.checkbox-active {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background-color: #069caa;
+    border: 0;
+}

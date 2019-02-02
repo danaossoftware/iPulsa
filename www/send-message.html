@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="cordova.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/global.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-database.js"></script>
+    <script src="js/send-message.js"></script>
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/send-message.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: #ffffff;">
+<div style="width: 100%; height: 100%; overflow-x: hidden!important">
+    <div style="width: 100%; display: flex; flex-flow: column nowrap;">
+        <div style="z-index: 1000; position: fixed; left: 0; top: 0; background-image: radial-gradient(100px 100px at center, #39c7d3, #0498a6); width: 100%; height: 50px; display: flex; flex-flow: row nowrap; justify-content: center; align-items: center;">
+            <div style="position: absolute; left: 0; top: 0; display: flex; height: 100%; flex-flow: row nowrap; align-items: center;">
+                <div onclick="window.history.back()" class="back-button"
+                     style="width: 50px; height: 100%; display: flex; justify-content: center; align-items: center;">
+                    <img src="img/back-3.png" width="20px" height="20px">
+                </div>
+                <img id="profile-picture" src="img/profile-picture.png" width="30px" height="30px"
+                     style="border-radius: 50%;">
+                <div id="sender-name"
+                     style="color: white; text-overflow: ellipsis; white-space: normal; margin-left: 5px;"></div>
+            </div>
+            <div style="position: absolute; top: 0; right: 0; height: 100%; display: flex; flex-flow: row nowrap;">
+                <div onclick="videoCall()"
+                     style="width: 50px; height: 100%; display: flex; justify-content: center; align-items: center;">
+                    <img src="img/camera.png" width="20px" height="20px">
+                </div>
+                <div onclick="call()"
+                     style="width: 50px; height: 100%; display: flex; justify-content: center; align-items: center;">
+                    <img src="img/phone-3.png" width="20px" height="20px">
+                </div>
+                <div onclick="openMenu()"
+                     style="width: 50px; height: 100%; display: flex; justify-content: center; align-items: center;">
+                    <img src="img/menu.png" width="20px" height="20px">
+                </div>
+            </div>
+        </div>
+        <div id="select-messages-container"
+             style="z-index: 2000; position: fixed; left: 0; top: 0; background-image: radial-gradient(100px 100px at center, #39c7d3, #0498a6); width: 100%; height: 50px; display: none; flex-flow: row nowrap; justify-content: center; align-items: center;">
+            <div style="position: absolute; top: 0; left: 0; display: flex; flex-flow: row nowrap; align-items: center; height: 100%;">
+                <div onclick="closeMessageSelectionBar()" style="width: 30px; height: 100%; display: flex; justify-content: center; align-items: center;">
+                    <img src="img/back.png" width="20px" height="20px">
+                </div>
+                <div id="messages-selected" style="margin-left: 10px; color: white;">0 pesan dipilih</div>
+            </div>
+            <div onclick="showMessageSelectionMenu()"
+                 style="position: absolute; top: 0; right: 0; width: 30px; height: 100%; display: flex; justify-content: center; align-items: center;">
+                <img src="img/menu.png" width="20px" height="20px">
+            </div>
+        </div>
+        <div id="messages"
+             style="width: 100%; height: calc(100% - 110px); margin-top: 50px; display: flex; flex-flow: column nowrap; margin-bottom: 70px;"></div>
+        <!--<div id="replied-message" style="position: fixed; bottom: 60px; left: 0; width: calc(100% - 70px); height: 60px; border-top-left-radius: 5px; border-top-right-radius: 5px; margin-left: 10px; margin-right: 50px; color: black; padding: 5px; background-color: #dbe7ff; display: none;">
+            <div onclick="closeRepliedMessage()" style="position: absolute; top: -15px; right: -15px; width: 30px; height: 30px;">
+                <img src="img/close-2.png" width="30px" height="30px">
+            </div>
+        </div>-->
+        <div style="position: fixed; left: 0; bottom: 0; width: 100%; height: 60px; padding-top: 10px; padding-bottom: 10px; display: flex; flex-flow: row nowrap; align-items: center; background-color: white;">
+            <div style="width: calc(100% - 65px); height: 100%; margin-left: 5px; border-radius: 20px; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .5); display: flex; flex-flow: row nowrap; align-items: center;">
+                <div onclick="showAttachment()" style="width: 50px; height: 100%; display: flex; justify-content: center; align-items: center;">
+                    <img src="img/clip.png" width="30px" height="30px">
+                </div>
+                <input type="text" id="message"
+                       style="border: 0; height: 40px; width: calc(100% - 110px); padding: 5px;"
+                       placeholder="Ketik pesan">
+                <div onclick="sendMessage()"
+                     style="width: 50px; height: 100%; display: flex; justify-content: center; align-items: center;">
+                    <div style="width: 40px; height: 40px; border: 1px solid #888888; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                        <div style="color: black; font-family: 'SegoeUILight'; font-size: 13px;">KIRIM</div>
+                    </div>
+                </div>
+            </div>
+            <div onclick="record()"
+                 style="width: 50px; height: 50px; background-color: #48d2c5; border-radius: 50%; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .5); margin-right: 5px; margin-left: 5px; display: flex; justify-content: center; align-items: center;">
+                <img src="img/microphone.png" width="20px" height="20px">
+            </div>
+        </div>
+    </div>
+    <div id="message-info-container"
+         style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .5); display: none; justify-content: center; align-items: center;">
+        <div style="width: 400px; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .5); background-color: white; display: flex; flex-flow: column nowrap;">
+            <div style="width: 100%; display: flex; justify-content: center;">
+                <div style="color: black; font-weight: bold;; font-size: 20px;">Info Pesan</div>
+            </div>
+            <div id="sent" style="margin-left: 10px; margin-right: 10px; width: calc(100% - 20px); color: black;">
+                Dikirim:
+            </div>
+            <div id="read" style="margin-left: 10px; margin-right: 10px; width: calc(100% - 20px); color: black;">
+                Dibaca:
+            </div>
+            <div style="width: 100%; display: flex; justify-content: flex-end; margin-bottom: 10px;">
+                <button onclick="closeMessageInfoDialog()" class="flat-button">OK</button>
+            </div>
+        </div>
+    </div>
+    <div id="chat-menu"
+         style="display: none; flex-flow: column nowrap; position: fixed; top: 60px; right: 10px; width: 200px; background-color: white; border-radius: 10px; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);">
+        <div onclick="markMessages()" class="chat-menu-item"
+             style="padding: 10px; width: calc(100% - 20px); height: 30px; border-top-left-radius: 10px; border-top-right-radius: 10px; display: flex; align-items: center;">
+            <div style="color: black;">Tandai pesan</div>
+        </div>
+        <div onclick="deleteAllMessages()" class="chat-menu-item"
+             style="padding: 10px; width: calc(100% - 20px); height: 30px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; display: flex; align-items: center;">
+            <div style="color: black;">Hapus semua pesan</div>
+        </div>
+    </div>
+    <div id="message-selection-menu"
+         style="z-index: 1000; width: 200px; position: fixed; top: 10px; right: 10px; border-radius: 10px; background-color: white; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5); display: none; flex-flow: column nowrap;">
+        <div class="chat-menu-item" onclick="editMessage()" id="message-selection-menu-1"
+             style="width: 100%; margin-top: 10px; height: 20px; text-align: right; padding: 10px; color: black; display: flex; align-items: center;">
+            Edit
+        </div>
+        <div class="chat-menu-item" onclick="replyMessage()" id="message-selection-menu-2"
+             style="width: 100%; height: 20px; text-align: right; padding: 10px; color: black; display: flex; align-items: center;">
+            Balas
+        </div>
+        <div class="chat-menu-item" onclick="deleteMessage()" id="message-selection-menu-3"
+             style="width: 100%; height: 20px; text-align: right; padding: 10px; color: black; display: flex; align-items: center;">
+            Hapus
+        </div>
+        <div class="chat-menu-item" onclick="copyMessage()" id="message-selection-menu-4"
+             style="width: 100%; height: 20px; text-align: right; padding: 10px; color: black; display: flex; align-items: center;">
+            Salin
+        </div>
+        <div class="chat-menu-item" onclick="shareMessage()" id="message-selection-menu-5"
+             style="width: 100%; height: 20px; text-align: right; padding: 10px; color: black; display: flex; align-items: center;">
+            Sebarkan
+        </div>
+        <div class="chat-menu-item" onclick="forwardMessage()" id="message-selection-menu-6"
+             style="width: 100%; height: 20px; text-align: right; padding: 10px; color: black; margin-bottom: 10px; display: flex; align-items: center;">
+            Teruskan
+        </div>
+        <div class="chat-menu-item" onclick="clearSelection()" id="message-selection-menu-7"
+             style="width: 100%; height: 20px; text-align: right; padding: 10px; color: black; margin-bottom: 10px; display: flex; align-items: center;">
+            Bersihkan pilihan
+        </div>
+    </div>
+    <div id="prompt-container"
+         style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, .5); position: fixed; left: 0; top: 0; display: none; justify-content: center; align-items: center;">
+        <div style="width: 400px; background-color: white; border-radius: 10px; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);">
+            <div style="width: 100%; display: flex; justify-content: center;">
+                <div id="prompt-title"
+                     style="color: black; font-size: 20px; font-weight: bold; margin-top: 10px;"></div>
+            </div>
+            <div id="prompt-message" style="width: calc(100% - 40px); padding: 20px; color: black;"></div>
+            <div style="width: 100%; display: flex; flex-flow: row nowrap; justify-content: flex-end; margin-bottom: 10px;">
+                <button id="prompt-cancel" class="flat-button">Batal</button>
+                <button id="prompt-ok" class="flat-button">OK</button>
+            </div>
+        </div>
+    </div>
+    <div id="alert-container"
+         style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, .5); position: fixed; left: 0; top: 0; display: none; justify-content: center; align-items: center;">
+        <div style="width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; background-color: white; border-radius: 10px; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);">
+            <div style="width: 100%; display: flex; justify-content: center; margin-top: 10px;">
+                <div id="alert-title" style="color: black; font-size: 20px; font-weight: bold;;"></div>
+            </div>
+            <div id="alert-message" style="width: calc(100% - 20px); padding: 10px; color: black;"></div>
+            <div style="width: 100%; display: flex; flex-flow: row nowrap; justify-content: flex-end; margin-bottom: 10px;">
+                <button id="alert-ok" class="flat-button" style="margin-right: 10px;">OK</button>
+            </div>
+        </div>
+    </div>
+    <div id="loading-container"
+         style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, .8);">
+        <div style="width: 200px; height: 200px; border-radius: 30px; background-color: white; display: flex; justify-content: center; align-items: center;">
+            <div class="loader" style="transform: scale(.5, .5);"></div>
+        </div>
+    </div>
+    <div id="forward-dialog" style="z-index: 3001; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .5); display: none; justify-content: center; align-items: center;">
+        <div style="width: calc(100% - 40px); height: calc(100% - 40px); margin: 20px; display: flex; flex-flow: column nowrap; border-radius: 5px; position: relative; background-color: white;">
+            <div style="width: 100%; height: 50px; background-color: #3498db; border-top-left-radius: 5px; border-top-right-radius: 5px; display: flex; flex-flow: row nowrap; align-items: center;">
+                <div onclick="closeForwardDialog()" style="width: 50px; height: 100%; display: flex; justify-content: center; align-items: center;">
+                    <img src="img/close-3.png" width="20px" height="20px">
+                </div>
+                <div style="color: white; font-size: 17px; margin-left: 10px;">Teruskan pesan</div>
+            </div>
+            <div id="followers" style="width: 100%; display: flex; flex-flow: column nowrap;">
+            </div>
+            <div style="width: 100%; height: 1px; position: absolute; bottom: 50px; left: 0; background-color: rgba(0, 0, 0, .2);"></div>
+            <div style="height: 50px; position: absolute; right: 0; bottom: 0; display: flex; flex-flow: row nowrap;">
+                <button onclick="closeForwardDialog()" class="flat-button">Batal</button>
+            </div>
+        </div>
+    </div>
+    <div id="attachment" style="background-color: white; margin-left: 20px; margin-right: 20px; margin-bottom: -240px; transition: margin-bottom .3s; position: fixed; left: 0; bottom: 0; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .4); padding-top: 15px; padding-bottom: 15px; width: calc(100% - 40px); height: 200px; display: flex; flex-flow: row wrap;">
+        <div style="width: 33%; display: flex; flex-flow: column nowrap; align-items: center;">
+            <div onclick="openCamera()" class="attachment-item-1" style="width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                <img src="img/camera-2.png" width="30px" height="30px">
+            </div>
+            <div id="text1" style="color: #444444; font-size: 13px; margin-top: 5px;">Kamera</div>
+        </div>
+        <div style="width: 33%; display: flex; flex-flow: column nowrap; align-items: center;">
+            <div onclick="openGallery()" class="attachment-item-2" style="width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                <img src="img/gallery.png" width="30px" height="30px">
+            </div>
+            <div id="text2" style="color: #444444; font-size: 13px; margin-top: 5px;">Galeri</div>
+        </div>
+        <div style="width: 33%; display: flex; flex-flow: column nowrap; align-items: center;">
+            <div class="attachment-item-3" style="width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                <img src="img/add-2.png" width="30px" height="30px">
+            </div>
+            <div id="text3" style="color: #444444; font-size: 13px; margin-top: 5px;">Ikon</div>
+        </div>
+        <div style="width: 33%; display: flex; flex-flow: column nowrap; align-items: center;">
+            <div class="attachment-item-4" style="width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                <img src="img/map.png" width="30px" height="30px">
+            </div>
+            <div id="text4" style="color: #444444; font-size: 13px; margin-top: 5px;">Lokasi</div>
+        </div>
+        <div style="width: 33%; display: flex; flex-flow: column nowrap; align-items: center;">
+            <div class="attachment-item-5" style="width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                <img src="img/document.png" width="30px" height="30px">
+            </div>
+            <div id="text5" style="color: #444444; font-size: 13px; margin-top: 5px;">Dokumen</div>
+        </div>
+        <div style="width: 33%; display: flex; flex-flow: column nowrap; align-items: center;">
+            <div class="attachment-item-6" style="width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                <img src="img/user.png" width="30px" height="30px">
+            </div>
+            <div id="text6" style="color: #444444; font-size: 13px; margin-top: 5px;">Kontak</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

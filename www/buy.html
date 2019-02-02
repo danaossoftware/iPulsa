@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="cordova.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/global.js"></script>
+        <script src="js/buy.js"></script>
+        <link href="css/global.css" rel="stylesheet">
+        <link href="css/buy.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div style="width: 100%; display: flex; flex-flow: column nowrap;">
+            <div id="titlebar" style="width: 100%; z-index: 1000; position: fixed; left: 0; top: 0;"></div>
+            <div style="margin-top: 50px; width: 100%; display: flex; flex-flow: row nowrap;">
+                <div style="width: 80%; display: flex; flex-flow: column nowrap;">
+                    <div style="margin-left: 10px; display: flex; align-items: center; width: 100%; height: 30px; flex-flow: row nowrap;">
+                        <img src="img/wallet.png" width="30px" height="30px">
+                        <div id="user-name" style="color: #079dab; font-weight: bold;; font-size: 20px; margin-left: 5px;">
+                            User Name
+                        </div>
+                    </div>
+                    <div style="margin-left: 10px; width: 100%; display: flex; flex-flow: row nowrap;">
+                        <div style="color: #079dab; margin-top: 10px; font-size: 15px;">Rp</div>
+                        <div id="balance" style="color: #079dab; font-size: 30px; font-weight: bold;;">0,-</div>
+                    </div>
+                </div>
+                <button class="button2" style="margin-right: 20px;">TOP UP</button>
+            </div>
+            <div style="width: 93%; margin-top: 5px; margin-left: 10px; margin-right: 10px; height: 1px; background-color: #c3c3c3;"></div>
+            <div style="margin-bottom: 60px; padding-left: 10px; padding-right: 10px; margin-top: 20px; display: flex; width: 94%; flex-flow: row wrap;">
+                <!-- Pulsa -->
+                <div onclick="window.location.href='topup.html'" class="menu-item-container" style="margin-top: 5px; margin-bottom: 5px; width: 25%; display: flex; flex-flow: column nowrap; align-items: center;">
+                    <div class="menu-item" style="width: 70px; height: 70px; border-radius: 50%; border: 1px solid #9ecec3; display: flex; justify-content: center; align-items: center;">
+                        <img src="img/phone.png" width="30px">
+                    </div>
+                    <div style="text-align: center; font-size: 14px; color: black; font-weight: bold;;">Pulsa</div>
+                </div>
+                <!-- Paket Data -->
+                <div onclick="window.location.href='data.html'" class="menu-item-container" style="margin-top: 5px; margin-bottom: 5px; width: 25%; display: flex; flex-flow: column nowrap; align-items: center;">
+                    <div class="menu-item" style="width: 70px; height: 70px; border-radius: 50%; border: 1px solid #61bed7; display: flex; justify-content: center; align-items: center;">
+                        <img src="img/phone-2.png" width="30px">
+                    </div>
+                    <div style="text-align: center; font-size: 14px; color: black; font-weight: bold;;">Paket Data</div>
+                </div>
+                <!-- Token Listrik -->
+                <div onclick="window.location.href='listrik.html'" class="menu-item-container" style="margin-top: 5px; margin-bottom: 5px; width: 25%; display: flex; flex-flow: column nowrap; align-items: center;">
+                    <div class="menu-item" style="width: 70px; height: 70px; border-radius: 50%; border: 1px solid #f1ce5f; display: flex; justify-content: center; align-items: center;">
+                        <img src="img/lamp.png" width="30px">
+                    </div>
+                    <div style="text-align: center; font-size: 14px; color: black; font-weight: bold;;">Token Listrik</div>
+                </div>
+                <!-- Listrik Pascabayar -->
+                <div onclick="window.location.href='listrik.html?page=1'" class="menu-item-container" style="margin-top: 5px; margin-bottom: 5px; width: 25%; display: flex; flex-flow: column nowrap; align-items: center;">
+                    <div class="menu-item" style="width: 70px; height: 70px; border-radius: 50%; border: 1px solid #507cd1; display: flex; justify-content: center; align-items: center;">
+                        <img src="img/lamp-2.png" width="30px">
+                    </div>
+                    <div style="text-align: center; font-size: 14px; color: black; font-weight: bold;;">Listrik Pascabayar</div>
+                </div>
+                <!-- Ride -->
+                <div class="menu-item-container" style="margin-top: 5px; margin-bottom: 5px; width: 25%; display: flex; flex-flow: column nowrap; align-items: center;">
+                    <div class="menu-item" style="width: 70px; height: 70px; border-radius: 50%; border: 1px solid #9bd873; display: flex; justify-content: center; align-items: center;">
+                        <img src="img/ride.png" width="30px">
+                    </div>
+                    <div style="text-align: center; font-size: 14px; color: black; font-weight: bold;;">Gojek</div>
+                </div>
+                <!-- Grab -->
+                <div class="menu-item-container" style="margin-top: 5px; margin-bottom: 5px; width: 25%; display: flex; flex-flow: column nowrap; align-items: center;">
+                    <div class="menu-item" style="width: 70px; height: 70px; border-radius: 50%; border: 1px solid #f19597; display: flex; justify-content: center; align-items: center;">
+                        <img src="img/ride-2.png" width="30px">
+                    </div>
+                    <div style="text-align: center; font-size: 14px; color: black; font-weight: bold;;">Grab</div>
+                </div>
+                <!-- E-Money -->
+                <div onclick="window.location.href='emoney.html'" class="menu-item-container" style="margin-top: 5px; margin-bottom: 5px; width: 25%; display: flex; flex-flow: column nowrap; align-items: center;">
+                    <div class="menu-item" style="width: 70px; height: 70px; border-radius: 50%; border: 1px solid #bfa9cf; display: flex; justify-content: center; align-items: center;">
+                        <img src="img/e-money.png" width="30px">
+                    </div>
+                    <div style="text-align: center; font-size: 14px; color: black; font-weight: bold;;">E-Money</div>
+                </div>
+                <!-- Telkom -->
+                <div class="menu-item-container" style="margin-top: 5px; margin-bottom: 5px; width: 25%; display: flex; flex-flow: column nowrap; align-items: center;">
+                    <div class="menu-item" style="width: 70px; height: 70px; border-radius: 50%; border: 1px solid #71d0db; display: flex; justify-content: center; align-items: center;">
+                        <img src="img/telkom.png" width="30px">
+                    </div>
+                    <div style="text-align: center; font-size: 14px; color: black; font-weight: bold;;">Telkom</div>
+                </div>
+                <!-- Voucher Fisik -->
+                <div class="menu-item-container" style="margin-top: 5px; margin-bottom: 5px; width: 25%; display: flex; flex-flow: column nowrap; align-items: center;">
+                    <div class="menu-item" style="width: 70px; height: 70px; border-radius: 50%; border: 1px solid #9ecec3; display: flex; justify-content: center; align-items: center;">
+                        <img src="img/voucher.png" width="30px">
+                    </div>
+                    <div style="text-align: center; font-size: 14px; color: black; font-weight: bold;;">Voucher Fisik</div>
+                </div>
+                <!-- PDAM -->
+                <div class="menu-item-container" style="margin-top: 5px;  width: 25%; display: flex; flex-flow: column nowrap; align-items: center;">
+                    <div class="menu-item" style="width: 70px; height: 70px; border-radius: 50%; border: 1px solid #61bed7; display: flex; justify-content: center; align-items: center;">
+                        <img src="img/pdam.png" width="30px">
+                    </div>
+                    <div style="text-align: center; font-size: 14px; color: black; font-weight: bold;;">PDAM</div>
+                </div>
+            </div>
+        </div>
+        <div id="menubar"></div>
+        <div id="settings" style="z-index: 2000;"></div>
+    </body>
+</html>

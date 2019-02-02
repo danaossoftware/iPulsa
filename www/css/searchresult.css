@@ -1,0 +1,11 @@
+#back {
+    cursor: pointer;
+}
+
+#back:hover {
+    background-color: #dddddd;
+}
+
+#back:active {
+    background-color: #cccccc;
+}

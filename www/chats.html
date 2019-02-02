@@ -1,0 +1,48 @@
+<html>
+<head>
+    <script src="cordova.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/chats.js"></script>
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/chats.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div style="width: 100%; height: 100%; overflow-x: hidden!important;">
+    <div style="width: 100%; height: 100%; display: flex; flex-flow: column nowrap;">
+        <div id="titlebar" style="z-index: 1000;"></div>
+        <div style="margin-top: 50px; position: relative; height: 100%;">
+            <div id="chats"
+                 style="width: 100%; display: flex; flex-flow: column nowrap; position: absolute; left: 0; top: 0; margin-top: 30px; margin-bottom: 50px;">
+                <!--<div style="width: 100%; display: flex; flex-flow: row nowrap; align-items: center; height: 80px;">
+                    <img src="img/profile-picture.png" width="40px" height="40px" style="margin-left: 10px;">
+                    <div style="margin-left: 10px; display: flex; width: calc(100% - 50px); height: 100%; flex-flow: column nowrap;">
+                        <div style="color: black; margin-top: 10px; font-weight: bold;; font-size: 18px;">Sandy</div>
+                        <div style="color: #888888; margin-top: -8px; font-size: 12px;">Ini adalah pesan</div>
+                    </div>
+                </div>-->
+            </div>
+            <div id="loading-container"
+                 style="position: absolute; left: 0; top: -50px; width: 100%; height: 100%; display: none; justify-content: center; align-items: center; flex-flow: column nowrap;">
+                <div class="loader"></div>
+                <div style="color: black; margin-top: -30px;">Memuat pesan...</div>
+            </div>
+            <div id="no-message-container"
+                 style="position: absolute; left: 0; top: -50px; width: 100%; height: 100%; display: none; justify-content: center; align-items: center; flex-flow: column nowrap;">
+                <img src="img/message.png" width="100px" height="100px">
+                <div style="color: black; margin-top: 10px;">Tidak ada pesan</div>
+                <button onclick="window.location.href='search.html?action=0'" class="button2"
+                        style="width: 200px; margin-top: 10px;">Kirim Pesan Sekarang
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="send-message" onclick="window.location.href='choose-follower.html'" style="background-color: #0499a9; position: fixed; bottom: 60px; right: 10px; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; border-radius: 50%;">
+        <img src="img/send-message.png" width="30px" height="30px">
+    </div>
+    <div id="menubar"></div>
+    <div id="settings" style="z-index: 2000;"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="cordova.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/comments.js"></script>
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/comments.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: #f8f8f8;">
+<div style="width: 100%; display: flex; flex-flow: column nowrap;">
+    <div style="background-color: white; width: 100%; height: 50px; display: flex; justify-content: center; position: relative; align-items: center;">
+        <div onclick="window.history.back()" class="back-button" style="position: absolute; left: 0; top: 0; width: 50px; height: 100%; display: flex; justify-content: center; align-items: center;">
+            <img src="img/back.png" width="20px" height="20px">
+        </div>
+        <div style="color: black; font-weight: bold;; font-size: 20px;">Komentar</div>
+    </div>
+    <div style="width: 100%; height: 1px; background-color: rgba(0, 0, 0, .1);"></div>
+    <div id="comments" style="width: 100%; display: flex; flex-flow: column nowrap; margin-bottom: 50px;"></div>
+</div>
+<div style="position: absolute; left: 0; bottom: 0; width: 100%; height: 60px; background-color: white; display: flex; flex-flow: column nowrap; justify-content: center;">
+    <div style="width: 100%; height: 1px; background-color: rgba(0, 0, 0, .1);"></div>
+    <div style="width: calc(100% - 20px); display: flex; flex-flow: row nowrap; padding-left: 10px; padding-right: 10px;">
+        <input id="comment" class="input3" style="width: calc(100% - 120px);" placeholder="Masukkan komentar...">
+        <button onclick="comment()" class="button2" style="width: 80px; margin-left: 10px; margin-right: 10px; color: white; padding-left: 0; padding-right: 0;">Komentari</button>
+    </div>
+</div>
+<div id="loading-container" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .5); display: flex; justify-content: center; align-items: center;">
+    <div style="width: 150px; height: 150px; display: flex; justify-content: center; align-items: center; background-color: white; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .5);">
+        <div class="loader"></div>
+    </div>
+</div>
+</body>
+</html>

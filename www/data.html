@@ -1,0 +1,56 @@
+<html>
+<head>
+    <script src="cordova.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/buy.js"></script>
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/buy.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div style="width: 100%; height: 100%; display: flex; flex-flow: column nowrap;">
+    <div style="width: 100%; height: 50px; background-color: #069caa; display: flex; flex-flow: row nowrap; align-items: center;">
+        <div onclick="window.history.back()" style="width: 50px; height: 100%; display: flex; justify-content: center; align-items: center;">
+            <img src="img/back-2.png" width="20px" height="20px">
+        </div>
+        <div style="font-weight: bold;; color: white; font-size: 20px; margin-left: 10px;">Paket Data</div>
+    </div>
+    <div style="color: black; margin-left: 20px;">Nomor Telepon</div>
+    <div style="width: 100%; display: flex; flex-flow: row nowrap; align-items: center; height: 50px; position: relative;">
+        <div style="width: 20px; margin-right: 20px; height: 50px; display: flex; justify-content: center; align-items: center; order: 3;">
+            <img src="img/phonebook.png" width="20px" height="20px">
+        </div>
+        <img src="img/xl.png" width="20px" height="20px" style="order: 2; margin-right: 5px;">
+        <div style="order: 1; width: calc(100% - 65px); margin-top: 13px; margin-right: 10px; height: 2px; background-color: #c7c7c7; margin-left: 20px;"></div>
+    </div>
+    <div style="margin-left: 20px; padding: 10px; margin-right: 20px; margin-top: 15px; width: calc(100% - 60px); border-radius: 10px; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); display: flex; flex-flow: column nowrap;">
+        <div style="display: flex; flex-flow: row nowrap; justify-content: space-between">
+            <div style="color: black;">Kuota</div>
+            <div style="color: black;">Harga</div>
+        </div>
+        <div style="display: flex; flex-flow: row nowrap; justify-content: space-between">
+            <div style="color: black;">1 GB</div>
+            <div style="color: #069ca9;">Rp 15.000</div>
+        </div>
+        <div style="display: flex; flex-flow: row nowrap; justify-content: space-between">
+            <div style="color: black;">5 GB</div>
+            <div style="color: #069ca9;">Rp 55.000</div>
+        </div>
+        <div style="display: flex; flex-flow: row nowrap; justify-content: space-between">
+            <div style="color: black;">10 GB</div>
+            <div style="color: #069ca9;">Rp 100.000</div>
+        </div>
+        <div style="display: flex; flex-flow: row nowrap; justify-content: space-between">
+            <div style="color: black;">20 GB</div>
+            <div style="color: #069ca9;">Rp 189.000</div>
+        </div>
+    </div>
+    <div style="width: 100%; position: relative; height: 30px; margin-top: 20px;">
+        <div style="position: absolute; left: 20px; top: 0; color: #222222;">Harga</div>
+        <div style="position: absolute; right: 20px; top: 0; color: #222222;">Rp123.456</div>
+    </div>
+    <button class="button2" style="width: calc(100% - 40px); margin-left: 20px; margin-right: 20px;">Beli</button>
+</div>
+</body>
+</html>

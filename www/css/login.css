@@ -1,0 +1,9 @@
+.login-menu-item {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.login-menu-item-active {
+    background-color: #a35fe6;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, .5);
+    height: 30px;
+}

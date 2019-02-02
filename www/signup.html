@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="cordova.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/signup.js"></script>
+    <script type="text/javascript">
+    </script>
+    <title>Masuk</title>
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/signup.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div style="width: 100%; height: 100%; background-image: linear-gradient(45deg, #4eccb6, #a162e4); display: flex; flex-flow: column nowrap; justify-content: center; align-items: center; align-content: center;">
+    <div style="width: 100%; display: flex; justify-content: center; color: white; font-size: 40px; font-weight: bold;; margin-top: 10px;">Daftar</div>
+    <div style="width: 100%; display: flex; flex-flow: column nowrap; align-items: flex-start;">
+        <div style="margin-left: 15px; margin-top: 20px; color: white;">
+            Email/No. HP:
+        </div>
+    </div>
+    <input type="text" id="email" name="email" class="input1" style="margin-left: 10px; margin-right: 10px; width: calc(100% - 40px);">
+    <div style="width: 100%; display: flex; flex-flow: column nowrap; align-items: flex-start;">
+        <div style="margin-left: 15px; margin-top: 10px; color: white;">
+            Kata sandi:
+        </div>
+    </div>
+    <input maxlength="16" type="password" id="password" name="password" class="input1" style="margin-left: 10px; margin-right: 10px; width: calc(100% - 40px);">
+    <div id="error" style="margin-left: 15px; color: #e74c3c; font-weight: bold;; display: none;"></div>
+    <div style="width: 100%; display: flex; flex-flow: column nowrap; align-items: flex-start;">
+        <div style="margin-left: 15px; margin-top: 10px; color: white;">
+            <a href="forgot-password.html" style="text-decoration: none; color: white;">Lupa kata sandi?</a>
+        </div>
+    </div>
+    <div style="width: 100%; display: flex; justify-content: center; margin-top: 20px;">
+        <button onclick="signup()" class="button1">Daftar</button>
+    </div>
+    <div style="width: 100%; display: flex; justify-content: center; margin-top: 5px;">
+        <a style="color: white; text-decoration: none;" href="login.html">Sudah punya akun? Masuk sekarang</a>
+    </div>
+</div>
+<div id="loading-container" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: none; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, .8);">
+    <div style="width: 200px; height: 200px; border-radius: 30px; background-color: white; display: flex; justify-content: center; align-items: center;">
+        <div class="loader" style="transform: scale(.5, .5);"></div>
+    </div>
+</div>
+</body>
+</html>

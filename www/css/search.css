@@ -1,0 +1,22 @@
+.back-button:active {
+    background-color: #eeeeee;
+}
+
+.search {
+    width: calc(100% - 20px);
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, .2);
+    border: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.search::placeholder {
+    font-size: 17px;
+    font-family: 'PalanquinRegular';
+}
+
+.search-button:active {
+    background-color: #eeeeee;
+}

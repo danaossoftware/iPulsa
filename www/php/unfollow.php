@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
+include 'common.php';
 $followedUserId = $_GET["user-id"];
-session_start();
-$userId = $_SESSION["ipulsa_user_id"];
+$userId = getUserID();
 $c->query("DELETE FROM followers WHERE user_id='" . $followedUserId . "' AND follower_id='" . $userId . "'");

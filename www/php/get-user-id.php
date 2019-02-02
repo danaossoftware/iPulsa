@@ -1,4 +1,4 @@
 <?php
-session_start();
-$userId = $_SESSION["ipulsa_user_id"];
-echo $userId;
+include 'db.php';
+include 'common.php';
+echo getUserID();

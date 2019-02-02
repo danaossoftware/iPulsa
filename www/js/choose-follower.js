@@ -10,7 +10,6 @@ $(document).ready(function() {
         cache: false,
         success: function(a) {
             userId = a;
-            Native.show("User ID: "+userId);
             $.ajax({
                 type: 'GET',
                 url: SERVER_URL+'get-followers.php',
@@ -18,7 +17,6 @@ $(document).ready(function() {
                 dataType: 'text',
                 cache: false,
                 success: function(a) {
-                    Native.show("Followers: "+a);
                     if (a < 0) {
                         // Error
                         $("#loading-container").hide();

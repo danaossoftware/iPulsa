@@ -908,65 +908,75 @@ function showAttachment() {
 
 function openCamera() {
     $("#attachment").css("margin-bottom", "-240px");
+    attachmentShown = false;
     Native.openCamera();
 }
 
 function openGallery() {
     $("#attachment").css("margin-bottom", "-240px");
+    attachmentShown = false;
     Native.openGallery();
 }
 
 function pictureUploaded(url) {
-    $.ajax({
-        type: 'GET',
-        url: SERVER_URL + 'get-user-info-by-id.php',
-        data: {'user-id': userId},
-        dataType: 'text',
-        cache: false,
-        success: function (a) {
-            if (a < 0) {
-                // Error
-            } else {
-                var userInfo = JSON.parse(a);
-                var profilePictureURL = userInfo["profile_picture_url"];
-                if (profilePictureURL == "") {
-                    profilePictureURL = "img/profile-picture.png";
+	$.ajax({
+		type: 'GET',
+		url: SERVER_URL+"send-message.php",
+		dataType: 'text',
+		cache: false,
+		success: function(a) {
+            $.ajax({
+                type: 'GET',
+                url: SERVER_URL + 'get-user-info-by-id.php',
+                data: {'user-id': userId},
+                dataType: 'text',
+                cache: false,
+                success: function (a) {
+                    if (a < 0) {
+                        // Error
+                    } else {
+                        var userInfo = JSON.parse(a);
+                        var profilePictureURL = userInfo["profile_picture_url"];
+                        if (profilePictureURL == "") {
+                            profilePictureURL = "img/profile-picture.png";
+                        }
+                        var sentDate = new Date();
+                        var hour = sentDate.getHours();
+                        hour %= 12;
+                        if (hour < 10) {
+                            hour = "0" + hour;
+                        }
+                        var minute = sentDate.getMinutes();
+                        if (minute < 10) {
+                            minute = "0" + minute;
+                        }
+                        var sentTime = hour + ":" + minute;
+                        if (sentDate.getHours() >= 12) {
+                            sentTime += (" " + "PM");
+                        } else {
+                            sentTime += (" " + "AM");
+                        }
+                        $("#messages").append("" +
+                            "<div class='my-message message'>" +
+                            "<div class='my-message-inner'>" +
+                            "<img src='"+url+"' width='100px' height='100px' style='border-radius: 5px;'>" +
+                            "<div style='color: #888888; font-size: 13px;'>" + sentTime + "</div>" +
+                            "</div>" +
+                            "<img src='" + profilePictureURL + "' width='40px' height='40px' style='position: absolute; top: 0; right: 5px; border-radius: 50%; margin-top: 10px;'>" +
+                            "</div>"
+                        );
+                        messageSelections.push(0);
+                        setMessageClickListener();
+                        scrollToBottom();
+                        selecting = false;
+                        messageSelectionMenuShown = false;
+                        $(".message").css("background-color", "white");
+                        $("#message-selection-menu").hide();
+                        $("#select-messages-container").hide();
+                        $("#messages").css("margin-bottom", "100px");
+                    }
                 }
-                var sentDate = new Date();
-                var hour = sentDate.getHours();
-                hour %= 12;
-                if (hour < 10) {
-                    hour = "0" + hour;
-                }
-                var minute = sentDate.getMinutes();
-                if (minute < 10) {
-                    minute = "0" + minute;
-                }
-                var sentTime = hour + ":" + minute;
-                if (sentDate.getHours() >= 12) {
-                    sentTime += (" " + "PM");
-                } else {
-                    sentTime += (" " + "AM");
-                }
-                $("#messages").append("" +
-                    "<div class='my-message message'>" +
-                    "<div class='my-message-inner'>" +
-                    "<img src='"+url+"' width='100px' height='100px' style='border-radius: 5px;'>" +
-                    "<div style='color: #888888; font-size: 13px;'>" + sentTime + "</div>" +
-                    "</div>" +
-                    "<img src='" + profilePictureURL + "' width='40px' height='40px' style='position: absolute; top: 0; right: 5px; border-radius: 50%; margin-top: 10px;'>" +
-                    "</div>"
-                );
-                messageSelections.push(0);
-                setMessageClickListener();
-                scrollToBottom();
-                selecting = false;
-                messageSelectionMenuShown = false;
-                $(".message").css("background-color", "white");
-                $("#message-selection-menu").hide();
-                $("#select-messages-container").hide();
-                $("#messages").css("margin-bottom", "100px");
-            }
-        }
-    });
+            });
+		}
+	});
 }

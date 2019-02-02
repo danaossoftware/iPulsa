@@ -29,6 +29,7 @@ $(document).ready(function () {
     if (getLanguage() == 1) {
         $("#text7").html("Take picture");
         $("#text8").html("Record video");
+        $("#text9").html("Message Info");
     }
     $.ajax({
         type: 'GET',
@@ -154,15 +155,15 @@ function getMessages() {
                                     } else {
                                         sentTime += (" " + "AM");
                                     }
-                                    $("#messages").append("" +
-                                        "<div class='opponent-message message'>" +
+                                    var msgDiv = $("<div class='opponent-message message'>" +
                                         "<img src='" + profilePictureURL + "' width='40px' height='40px' style='position: absolute; top: 0; left: 5px; border-radius: 50%; margin-top: 10px; margin-top: 10px;'>" +
                                         "<div class='opponent-message-inner'>" +
-                                        "<div class='message-text'>" + message["message"] + "</div>" +
+                                        "<div class='message-text' style='text-align: left; max-width: calc(100% - 20px);'>" + message["message"] + "</div>" +
                                         "<div style='color: #888888; font-size: 13px;'>" + sentTime + "</div>" +
                                         "</div>" +
-                                        "</div>"
-                                    );
+                                        "</div>").hide();
+                                    $("#messages").append(msgDiv).css("margin-bottom", "70px");
+                                    msgDiv.show();
                                     messageSelections.push(0);
                                     setMessageClickListener();
                                     scrollToBottom();
@@ -238,15 +239,15 @@ function displayMessage(index) {
                         sentTime += (" " + "AM");
                     }
                     var attachmentURL = message["attachment"];
-                    $("#messages").append("" +
-                        "<div class='my-message message'>" +
+                    var msgDiv = $("<div class='my-message message'>" +
                         "<div class='my-message-inner'>" +
-                        "<div class='message-text'>" + message["message"] + "</div>" +
+                        "<div class='message-text' style='text-align: right; max-width: calc(100% - 20px);'>" + message["message"] + "</div>" +
                         "<div style='color: #888888; font-size: 13px;'>" + sentTime + "</div>" +
                         "</div>" +
-                        "<img src='" + profilePictureURL + "' width='40px' height='40px' style='position: absolute; top: 0; right: 5px; border-radius: 50%; margin-top: 10px;'>" +
-                        "</div>"
-                    );
+                        "<img src='" + profilePictureURL + "' width='40px' height='40px' style='margin-right: 5px; border-radius: 50%; margin-top: 10px;'>" +
+                        "</div>").hide();
+                    $("#messages").append(msgDiv);
+                    msgDiv.show();
                     messageSelections.push(0);
                     setMessageClickListener();
                     scrollToBottom();
@@ -288,9 +289,9 @@ function displayMessage(index) {
                     }
                     $("#messages").append("" +
                         "<div class='opponent-message message'>" +
-                        "<img src='" + profilePictureURL + "' width='40px' height='40px' style='position: absolute; top: 0; left: 5px; border-radius: 50%; margin-top: 10px;'>" +
+                        "<img src='" + profilePictureURL + "' width='40px' height='40px' style='margin-left: 5px; border-radius: 50%; margin-top: 10px;'>" +
                         "<div class='opponent-message-inner'>" +
-                        "<div class='message-text'>" + message["message"] + "</div>" +
+                        "<div class='message-text' style='text-align: left; max-width: calc(100% - 20px);'>" + message["message"] + "</div>" +
                         "<div style='color: #888888; font-size: 13px;'>" + sentTime + "</div>" +
                         "</div>" +
                         "</div>"
@@ -438,7 +439,7 @@ function sendMessage() {
                         $("#messages").append("" +
                             "<div class='my-message message'>" +
                             "<div class='my-message-inner'>" +
-                            "<div class='message-text'>" + message + "</div>" +
+                            "<div class='message-text' style='text-align: right; max-width: calc(100% - 20px);'>" + message + "</div>" +
                             "<div style='color: #888888; font-size: 13px;'>" + sentTime + "</div>" +
                             "</div>" +
                             "<img src='" + profilePictureURL + "' width='40px' height='40px' style='position: absolute; top: 0; right: 5px; border-radius: 50%; margin-top: 10px;'>" +
@@ -945,7 +946,8 @@ function pictureUploaded(url) {
     var fd = new FormData();
     fd.append("receiver-id", opponentUserId);
     fd.append("message", "");
-    fd.append("attachment-type", 1);
+    fd.append("attachment-url", url);
+    fd.append("attachment-type", "1");
 	$.ajax({
 		type: 'GET',
 		url: SERVER_URL+"send-message.php",
@@ -1018,7 +1020,8 @@ function videoUploaded(url) {
     var fd = new FormData();
     fd.append("receiver-id", opponentUserId);
     fd.append("message", "");
-    fd.append("attachment-type", 2);
+    fd.append("attachment-url", url);
+    fd.append("attachment-type", "2");
     $.ajax({
         type: 'GET',
         url: SERVER_URL+"send-message.php",

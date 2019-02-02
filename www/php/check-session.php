@@ -1,4 +1,6 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Content-type: application/json');
 include 'db.php';
 include 'get-ip.php';
 $ip = getIP();

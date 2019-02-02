@@ -4,7 +4,6 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    position: relative;
     justify-content: flex-end;
     padding-left: 10px;
     padding-right: 10px;
@@ -17,13 +16,12 @@
     border-radius: 30px;
     color: black;
     padding: 10px;
-    position: absolute;
-    top: 0;
-    right: 50px;
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-end;
     margin-top: 10px;
+    margin-right: 10px;
+    max-width: calc(100% - 80px);
 }
 
 .opponent-message {
@@ -32,12 +30,11 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    position: relative;
     justify-content: flex-start;
     padding-left: 10px;
     padding-right: 10px;
     min-height: 70px;
-    height: auto;
+    height:auto;
 }
 
 .opponent-message-inner {
@@ -45,13 +42,16 @@
     border-radius: 30px;
     color: black;
     padding: 10px;
-    position: absolute;
-    top: 0;
-    left: 50px;
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-end;
     margin-top: 10px;
+    margin-left: 10px;
+    max-width: calc(100% - 80px);
+}
+
+.message-text {
+    word-wrap: break-word;
 }
 
 .chat-menu-item:active {

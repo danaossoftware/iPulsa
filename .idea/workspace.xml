@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b52ddf1e-4576-4183-bfcb-e98e680e7494" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/www/css/send-message.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/send-message.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/js/send-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/send-message.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/php/send-message.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/php/send-message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/send-message.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/send-message.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/send-message.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+            <state relative-caret-position="221">
+              <caret line="1067" column="26" selection-start-line="1067" selection-start-column="26" selection-end-line="1067" selection-end-column="26" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -67,6 +65,9 @@
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -77,11 +78,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/php/send-message.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+            <state relative-caret-position="85">
+              <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -140,12 +141,15 @@
       <find>$_SESSION</find>
       <find>MOTE_ADDR</find>
       <find>REMOTE_ADDR</find>
-      <find>send-message.php</find>
       <find>camera</find>
       <find>upload</find>
       <find>20px</find>
       <find>messages</find>
       <find>last_messages</find>
+      <find>get-chats</find>
+      <find>attachment</find>
+      <find>attachment-type</find>
+      <find>send-message.php</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Dana\Documents\AndroidStudioProjects\iPulsa\app\src\main\assets\www\php</dir>
@@ -175,8 +179,8 @@
         <option value="$PROJECT_DIR$/www/php/upload-video.php" />
         <option value="$PROJECT_DIR$/www/css/send-message.css" />
         <option value="$PROJECT_DIR$/www/send-message.html" />
-        <option value="$PROJECT_DIR$/www/js/send-message.js" />
         <option value="$PROJECT_DIR$/www/php/send-message.php" />
+        <option value="$PROJECT_DIR$/www/js/send-message.js" />
       </list>
     </option>
   </component>
@@ -255,12 +259,12 @@
       <updated>1549096823813</updated>
       <workItem from="1549096825298" duration="973000" />
       <workItem from="1549099538445" duration="1112000" />
-      <workItem from="1549100937796" duration="1405000" />
+      <workItem from="1549100937796" duration="1699000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3490000" />
+    <option name="totallyTimeSpent" value="3784000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -432,10 +436,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/php/send-message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/php/send-mail.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/send-message.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        <state relative-caret-position="221">
+          <caret line="1067" column="26" selection-start-line="1067" selection-start-column="26" selection-end-line="1067" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -451,17 +465,10 @@
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/send-mail.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/send-message.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
         </state>
       </provider>
     </entry>

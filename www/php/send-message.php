@@ -31,3 +31,4 @@ if ($results && $results->num_rows > 0) {
         }
     }
 }
+echo $attachmentURL;

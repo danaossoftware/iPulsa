@@ -946,7 +946,7 @@ function pictureUploaded(url) {
     var fd = new FormData();
     fd.append("receiver-id", opponentUserId);
     fd.append("message", "");
-    fd.append("attachment-url", url);
+    fd.append("attachment-url", "Hello, world");
     fd.append("attachment-type", "1");
 	$.ajax({
 		type: 'GET',
@@ -956,6 +956,7 @@ function pictureUploaded(url) {
         contentType: false,
 		cache: false,
 		success: function(a) {
+            Native.show(a);
             firebase.database().ref("message_notifications/" + opponentUserId).set({
                 "new_message": 1
             });
@@ -1030,6 +1031,7 @@ function videoUploaded(url) {
         contentType: false,
         cache: false,
         success: function(a) {
+            Native.show(a);
             firebase.database().ref("message_notifications/" + opponentUserId).set({
                 "new_message": 1
             });

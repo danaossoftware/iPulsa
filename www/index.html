@@ -13,7 +13,8 @@
             dataType: 'text',
             cache: false,
             success: function (a) {
-                if (a == 0) {
+                var responseCode = parseInt(a);
+                if (responseCode == 0) {
                     // Logged in
                     window.location.href = "home.html";
                 } else {

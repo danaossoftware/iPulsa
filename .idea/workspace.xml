@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b52ddf1e-4576-4183-bfcb-e98e680e7494" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/www/php/common.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/js/choose-follower.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/choose-follower.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/php/add-comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/php/add-comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/php/find-users.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/php/find-users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/php/get-followed-users.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/php/get-followed-users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/php/get-posts.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/php/get-posts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/php/get-user-id.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/php/get-user-id.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/php/is-post-liked.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/php/is-post-liked.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/php/login-with-google.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/php/login-with-google.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/php/unfollow.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/php/unfollow.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +11,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/php/login-with-google.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
@@ -31,10 +22,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/php/check-session.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/php/db.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/php/login.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="171" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="171" />
+              <caret line="8" column="171" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="171" />
             </state>
           </provider>
         </entry>
@@ -67,6 +85,7 @@
         <option value="$PROJECT_DIR$/www/php/is-post-liked.php" />
         <option value="$PROJECT_DIR$/www/php/find-users.php" />
         <option value="$PROJECT_DIR$/www/php/login-with-google.php" />
+        <option value="$PROJECT_DIR$/www/index.html" />
       </list>
     </option>
   </component>
@@ -144,24 +163,20 @@
       <option name="presentableId" value="Default" />
       <updated>1549096823813</updated>
       <workItem from="1549096825298" duration="973000" />
+      <workItem from="1549099538445" duration="44000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="973000" />
+    <option name="totallyTimeSpent" value="1017000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -169,10 +184,15 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,13 +203,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/check-session.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -248,13 +261,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="34" lean-forward="true" selection-start-line="1" selection-end-line="2" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/php/common.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -276,17 +282,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="171" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="171" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/php/login-with-google.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="171" selection-start-line="7" selection-start-column="171" selection-end-line="7" selection-end-column="171" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/php/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="171" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="171" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/php/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/php/check-session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
         </state>
       </provider>
     </entry>

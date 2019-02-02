@@ -946,7 +946,7 @@ function pictureUploaded(url) {
     var fd = new FormData();
     fd.append("receiver-id", opponentUserId);
     fd.append("message", "");
-    fd.append("attachment-url", "Hello, world");
+    fd.append("attachment-url", url);
     fd.append("attachment-type", "1");
 	$.ajax({
 		type: 'GET',

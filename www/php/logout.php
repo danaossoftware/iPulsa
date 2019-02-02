@@ -1,6 +1,8 @@
 <?php
 include 'db.php';
-session_start();
-$_SESSION["ipulsa_user_id"] = "";
-unset($_SESSION["ipulsa_user_id"]);
-session_destroy();
+include 'get-ip.php';
+include 'common.php';
+$ip = getIP();
+$userId = getUserID();
+$c->query("DELETE FROM sessions WHERE ip='" . $ip . "' AND user_id='" . $userId . "'");
+echo 0;

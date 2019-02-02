@@ -1,11 +1,11 @@
 <?php
 include 'db.php';
+include 'common.php';
 $receiverId = $_POST["receiver-id"];
 $message = $_POST["message"];
 $attachmentURL = $_POST["attachment-url"];
 $attachmentType = $_POST["attachment-type"];
-session_start();
-$senderId = $_SESSION["ipulsa_user_id"];
+$senderId = getUserID();
 $date = round(microtime(true)*1000);
 $c->query("INSERT INTO messages (id, sender_id, receiver_id, message, sent_date, attachment, attachment_type) VALUES ('" . uniqid() . "', '" . $senderId . "', '" . $receiverId . "', '" . $message . "', '" . $date . "', '" . $attachmentURL . "', '" . $attachmentType . "')");
 $results = $c->query("SELECT * FROM last_messages WHERE sender_id='" . $senderId . "' AND receiver_id='" . $receiverId . "'");

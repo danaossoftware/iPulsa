@@ -1,8 +1,8 @@
 <?php
 include 'db.php';
-session_start();
-$receiverId = $_SESSION["receiver-id"];
-$senderId = $_SESSION["ipulsa_user_id"];
+include 'common.php';
+$receiverId = $_GET["receiver-id"];
+$senderId = getUserID();
 $results = $c->query("SELECT * FROM messages WHERE sender_id='" . $senderId . "' AND receiver_id='" . $receiverId . "'");
 if ($results && $results->num_rows > 0) {
     $messages = [];

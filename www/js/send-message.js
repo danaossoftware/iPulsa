@@ -946,7 +946,7 @@ function pictureUploaded(url) {
     var fd = new FormData();
     fd.append("receiver-id", opponentUserId);
     fd.append("message", "");
-    fd.append("attachment-url", url);
+    fd.append("attachment-url", "Hello world");
     fd.append("attachment-type", "1");
 	$.ajax({
 		type: 'GET',
@@ -1021,7 +1021,7 @@ function videoUploaded(url) {
     var fd = new FormData();
     fd.append("receiver-id", opponentUserId);
     fd.append("message", "");
-    fd.append("attachment-url", url);
+    fd.append("attachment-url", "Hello world");
     fd.append("attachment-type", "2");
     $.ajax({
         type: 'GET',

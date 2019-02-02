@@ -9,21 +9,30 @@
     <script>
         $.ajax({
             type: 'GET',
-            url: 'http://danaos.xyz/ipulsa/www/php/check-session.php',
+            url: 'http://danaos.xyz/ipulsa/www/php/get-ip.php',
             dataType: 'text',
             cache: false,
             success: function (a) {
-                var responseCode = parseInt(a);
-                if (responseCode == 0) {
-                    // Logged in
-                    window.location.href = "home.html";
-                } else {
-                    // Not logged in
-                    window.location.href = "login.html";
-                }
-            },
-            error: function (a, b, c) {
-                alert(b + ' ' + c);
+                Native.show(a);
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://danaos.xyz/ipulsa/www/php/check-session.php',
+                    dataType: 'text',
+                    cache: false,
+                    success: function (a) {
+                        var responseCode = parseInt(a);
+                        if (responseCode == 0) {
+                            // Logged in
+                            window.location.href = "home.html";
+                        } else {
+                            // Not logged in
+                            window.location.href = "login.html";
+                        }
+                    },
+                    error: function (a, b, c) {
+                        alert(b + ' ' + c);
+                    }
+                });
             }
         });
     </script>

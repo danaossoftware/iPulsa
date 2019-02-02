@@ -21,6 +21,10 @@ $(document).ready(function () {
     var params = location.search;
     params = params.substr(1, params.length);
     opponentUserId = params.split("&")[0].split("=")[1];
+    if (getLanguage() == 1) {
+        $("#text7").html("Upload picture");
+        $("#text8").html("Upload video");
+    }
     $.ajax({
         type: 'GET',
         url: SERVER_URL + 'get-user-id.php',
@@ -909,7 +913,15 @@ function showAttachment() {
 function openCamera() {
     $("#attachment").css("margin-bottom", "-240px");
     attachmentShown = false;
+    $("#choose-media-type").css("display", "flex");
+}
+
+function takePicture() {
     Native.openCamera();
+}
+
+function captureVideo() {
+    Native.recordVideo();
 }
 
 function openGallery() {

@@ -109,3 +109,11 @@
 .attachment-item-6:active {
     background-color: #9a2120;
 }
+
+.choose-media-type-item {
+    background-color: #eeeeee;
+}
+
+.choose-media-type-item:active {
+    background-color: #eeeeee;
+}

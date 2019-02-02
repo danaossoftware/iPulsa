@@ -22,8 +22,8 @@ $(document).ready(function () {
     params = params.substr(1, params.length);
     opponentUserId = params.split("&")[0].split("=")[1];
     if (getLanguage() == 1) {
-        $("#text7").html("Upload picture");
-        $("#text8").html("Upload video");
+        $("#text7").html("Take picture");
+        $("#text8").html("Record video");
     }
     $.ajax({
         type: 'GET',
@@ -917,10 +917,12 @@ function openCamera() {
 }
 
 function takePicture() {
+    $("#choose-media-type").hide();
     Native.openCamera();
 }
 
 function captureVideo() {
+    $("#choose-media-type").hide();
     Native.recordVideo();
 }
 

@@ -1,6 +1,6 @@
 <?php
 $attachmentURL = $_POST["attachment-url"];
-/*include 'db.php';
+include 'db.php';
 include 'common.php';
 $receiverId = $_POST["receiver-id"];
 $message = $_POST["message"];
@@ -30,5 +30,4 @@ if ($results && $results->num_rows > 0) {
             $c->query("INSERT INTO last_messages (id, sender_id, receiver_id, last_message) VALUES ('" . uniqid() . "', '" . $senderId . "', '" . $receiverId . "', 'Media')");
         }
     }
-}*/
-echo $attachmentURL;
+}

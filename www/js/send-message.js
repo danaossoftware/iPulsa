@@ -16,6 +16,7 @@ var currentEdittedMessageIndex = 0;
 var chatMenuShown = false;
 var forwardedMessages = [];
 var attachmentShown = false;
+var cameraTypeShown = false;
 /*
 ATTACHMENT TYPES:
 1 = Picture
@@ -731,6 +732,9 @@ function backKey() {
         messageSelectionMenuShown = false;
     } else if (chatMenuShown) {
         $("#chat-menu").hide();
+    } else if (cameraTypeShown) {
+        $("#choose-media-type").hide();
+        cameraTypeShown = false;
     } else {
         window.history.back();
     }
@@ -923,6 +927,7 @@ function openCamera() {
     $("#attachment").css("margin-bottom", "-240px");
     attachmentShown = false;
     $("#choose-media-type").css("display", "flex");
+    cameraTypeShown = true;
 }
 
 function takePicture() {
@@ -949,14 +954,13 @@ function pictureUploaded(url) {
     fd.append("attachment-url", "Hello world");
     fd.append("attachment-type", "1");
 	$.ajax({
-		type: 'GET',
+		type: 'POST',
 		url: SERVER_URL+"send-message.php",
         data: fd,
         processData: false,
         contentType: false,
 		cache: false,
 		success: function(a) {
-            Native.show(a);
             firebase.database().ref("message_notifications/" + opponentUserId).set({
                 "new_message": 1
             });
@@ -1024,14 +1028,13 @@ function videoUploaded(url) {
     fd.append("attachment-url", "Hello world");
     fd.append("attachment-type", "2");
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: SERVER_URL+"send-message.php",
         data: fd,
         processData: false,
         contentType: false,
         cache: false,
         success: function(a) {
-            Native.show(a);
             firebase.database().ref("message_notifications/" + opponentUserId).set({
                 "new_message": 1
             });

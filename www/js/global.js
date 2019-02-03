@@ -216,3 +216,17 @@ function setDivClickListener() {
         }).addClass("rippleEffect");
     });
 }
+
+function showImage(url) {
+    var os = getMobileOperatingSystem();
+    if (os == "Android") {
+        Native.showImage(url);
+    }
+}
+
+function showVideo(url) {
+    var os = getMobileOperatingSystem();
+    if (os == "Android") {
+        Native.showVideo(url);
+    }
+}

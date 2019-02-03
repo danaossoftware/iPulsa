@@ -495,6 +495,43 @@ function setMessageClickListener() {
             showVideo(attachmentURL);
         }
     });
+    $(".message-map").unbind().on("click", function() {
+        if (selecting) {
+            var index = $(this).parent().children().index(this);
+            var selected = messageSelections[index];
+            if (selected == 0) {
+                selected = 1;
+                totalSelection++;
+            } else {
+                selected = 0;
+                totalSelection--;
+            }
+            messageSelections[index] = selected;
+            if (selected == 0) {
+                $(this).css("background-color", "white");
+            } else if (selected == 1) {
+                $(this).css("background-color", "#c1ebea");
+            }
+            if (getLanguage() == 0) {
+                $("#messages-selected").html("" + totalSelection + " pesan dipilih");
+            } else if (getLanguage() == 1) {
+                $("#messages-selected").html("" + totalSelection + " messages selected");
+            }
+        } else {
+            var index = $(this).parent().children().index(this);
+            var message = messages[index];
+            try {
+                var latitude = message["latitude"];
+                var longitude = message["longitude"];
+                var os = getMobileOperatingSystem();
+                if (os == "Android") {
+                    Native.showLocation(latitude, longitude);
+                }
+            } catch (e) {
+                console.log(e.toString());
+            }
+        }
+    });
 }
 
 function sendMessage() {
@@ -510,6 +547,7 @@ function sendMessage() {
     fd.append("address", "");
     fd.append("latitude", 0);
     fd.append("longitude", 0);
+    fd.append("language", getLanguage());
     $.ajax({
         type: 'POST',
         url: SERVER_URL + 'send-message.php',
@@ -518,6 +556,8 @@ function sendMessage() {
         contentType: false,
         cache: false,
         success: function (a) {
+            var messageInfo = JSON.parse(a);
+            messages.push(messageInfo);
             firebase.database().ref("message_notifications/" + opponentUserId).set({
                 "new_message": 1
             });
@@ -993,6 +1033,7 @@ function setFollowerClickListener() {
         fd.append("address", "");
         fd.append("latitude", 0);
         fd.append("longitude", 0);
+        fd.append("language", getLanguage());
         $.ajax({
             type: 'POST',
             url: SERVER_URL + 'send-message.php',
@@ -1001,6 +1042,8 @@ function setFollowerClickListener() {
             contentType: false,
             cache: false,
             success: function (a) {
+                var messageInfo = JSON.parse(a);
+                messages.push(messageInfo);
                 firebase.database().ref("message_notifications/" + opponentUserId).set({
                     "new_message": 1
                 });
@@ -1087,6 +1130,8 @@ function pickVideo() {
 }
 
 function pickIcon() {
+    $("#attachment").css("margin-bottom", "-240px");
+    attachmentShown = false;
     var os = getMobileOperatingSystem();
     if (os == "Android") {
         Native.pickPicture();
@@ -1102,6 +1147,14 @@ function pickLocation() {
     }
 }
 
+function pickDocument() {
+    var os = getMobileOperatingSystem();
+    if (os == "Android") {
+        Native.pickDocument();
+    } else if (os == "iOS") {
+    }
+}
+
 function pictureUploaded(url) {
     $("#message").val("");
     var fd = new FormData();
@@ -1112,6 +1165,7 @@ function pictureUploaded(url) {
     fd.append("address", "");
     fd.append("latitude", 0);
     fd.append("longitude", 0);
+    fd.append("language", getLanguage());
 	$.ajax({
 		type: 'POST',
 		url: SERVER_URL+"send-message.php",
@@ -1120,6 +1174,8 @@ function pictureUploaded(url) {
         contentType: false,
 		cache: false,
 		success: function(a) {
+            var messageInfo = JSON.parse(a);
+            messages.push(messageInfo);
             firebase.database().ref("message_notifications/" + opponentUserId).set({
                 "new_message": 1
             });
@@ -1189,6 +1245,7 @@ function videoUploaded(url) {
     fd.append("address", "");
     fd.append("latitude", 0);
     fd.append("longitude", 0);
+    fd.append("language", getLanguage());
     $.ajax({
         type: 'POST',
         url: SERVER_URL+"send-message.php",
@@ -1197,6 +1254,8 @@ function videoUploaded(url) {
         contentType: false,
         cache: false,
         success: function(a) {
+            var messageInfo = JSON.parse(a);
+            messages.push(messageInfo);
             firebase.database().ref("message_notifications/" + opponentUserId).set({
                 "new_message": 1
             });
@@ -1266,6 +1325,7 @@ function locationPicked(address, latitude, longitude) {
     fd.append("address", address);
     fd.append("latitude", latitude);
     fd.append("longitude", longitude);
+    fd.append("language", getLanguage());
     $.ajax({
         type: 'POST',
         url: SERVER_URL+"send-message.php",
@@ -1274,6 +1334,8 @@ function locationPicked(address, latitude, longitude) {
         contentType: false,
         cache: false,
         success: function(a) {
+            var messageInfo = JSON.parse(a);
+            messages.push(messageInfo);
             firebase.database().ref("message_notifications/" + opponentUserId).set({
                 "new_message": 1
             });
@@ -1308,12 +1370,18 @@ function locationPicked(address, latitude, longitude) {
                         } else {
                             sentTime += (" " + "AM");
                         }
+                        var name = userInfo["name"];
+                        if (name == "") {
+                            name = userInfo["email"];
+                        }
+                        var text = ""+name+" membagikan lokasi. Ketuk untuk melihat lokasi.";
+                        if (getLanguage() == 1) {
+                            text = ""+name+" shared location. Touch to view location in maps.";
+                        }
                         $("#messages").append("" +
-                            "<div class='my-message message-video'>" +
+                            "<div class='my-message message-map'>" +
                             "<div class='my-message-inner'>" +
-                            "<video width='100px' height='100px' style='border-radius: 5px;'>"+
-                            "<source src='"+url+"'>"+
-                            "</video>" +
+                            "<div style='color: black; font-size: 20sp;';>"+text+"</div>"+
                             "<div style='color: #888888; font-size: 13px;'>" + sentTime + "</div>" +
                             "</div>" +
                             "<img src='" + profilePictureURL + "' width='40px' height='40px' style='position: absolute; top: 0; right: 5px; border-radius: 50%; margin-top: 10px;'>" +
@@ -1332,4 +1400,8 @@ function locationPicked(address, latitude, longitude) {
             });
         }
     });
+}
+
+function documentUploaded(url) {
+
 }

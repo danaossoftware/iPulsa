@@ -59,3 +59,6 @@ if ($results && $results->num_rows > 0) {
         }
     }
 }
+$results = $c->query("SELECT * FROM messages WHERE sender_id='" . $senderId . "' AND receiver_id='" . $receiverId . "'");
+$row = $results->fetch_assoc();
+echo json_encode($row);

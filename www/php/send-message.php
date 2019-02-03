@@ -8,10 +8,13 @@ $attachmentType = $_POST["attachment-type"];
 $address = $_POST["address"];
 $latitude = $_POST["latitude"];
 $longitude = $_POST["longitude"];
+$fileName = $_POST["file-name"];
+$contactName = $_POST["contact-name"];
+$contactNumber = $_POST["contact-number"];
 $senderId = getUserID();
 $language = $_POST["language"];
 $date = round(microtime(true)*1000);
-$c->query("INSERT INTO messages (id, sender_id, receiver_id, message, sent_date, attachment, attachment_type) VALUES ('" . uniqid() . "', '" . $senderId . "', '" . $receiverId . "', '" . $message . "', '" . $date . "', '" . $attachmentURL . "', '" . $attachmentType . "', '" . $address . "', " . $latitude . ", " . $longitude . ")");
+$c->query("INSERT INTO messages (id, sender_id, receiver_id, message, sent_date, attachment, attachment_type, attachment_name, contact_name, contact_number, address, latitude, longitude) VALUES ('" . uniqid() . "', '" . $senderId . "', '" . $receiverId . "', '" . $message . "', '" . $date . "', '" . $attachmentURL . "', '" . $attachmentType . "', '" . $fileName . "', '" . $contactName . "', '" . $contactNumber . "', '" . $address . "', " . $latitude . ", " . $longitude . ")");
 $results = $c->query("SELECT * FROM last_messages WHERE sender_id='" . $senderId . "' AND receiver_id='" . $receiverId . "'");
 if ($results && $results->num_rows > 0) {
     if ($attachmentURL == "") {

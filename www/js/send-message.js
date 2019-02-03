@@ -22,6 +22,9 @@ var galleryTypeShown = false;
 ATTACHMENT TYPES:
 1 = Picture
 2 = Video
+3 = Location
+4 = Document
+5 = Contact
  */
 
 $(document).ready(function () {
@@ -273,6 +276,35 @@ function displayMessage(index) {
                                 "</div>" +
                                 "<img src='" + profilePictureURL + "' width='40px' height='40px' style='margin-right: 5px; border-radius: 50%; margin-top: 10px;'>" +
                                 "</div>");
+                        } else if (attachmentType == 3) {
+                            $("#messages").append("" +
+                                "<div class='my-message message-document'>" +
+                                "<div class='my-message-inner'>" +
+                                "<div style='width: calc(100% - 20px); height: 40px; background-color: #eeeeee; border: 1px solid #dddddd; border-radius: 10px; margin-left: 10px; margin-right: 10px; display: flex; flex-flow: row nowrap; align-items: center;';>"+
+                                "<div style='width: calc(100% - 60px); margin-left: 10px; color: black; margin-right: 10px;'>"+fileName+"</div>"+
+                                "<div style='width: 40px; height: 40px; border: 1px solid #dddddd; border-radius: 50%; display: flex; justify-content: center; align-items: center;'>"+
+                                "<img src='img/download.png' width='20px' height='20px'>"+
+                                "</div>"+
+                                "</div>"+
+                                "<div style='color: #888888; font-size: 13px;'>" + sentTime + "</div>" +
+                                "</div>" +
+                                "<img src='" + profilePictureURL + "' width='40px' height='40px' style='position: absolute; top: 0; right: 5px; border-radius: 50%; margin-top: 10px;'>" +
+                                "</div>");
+                        } else if (attachmentType == 4) {
+                            $("#messages").append("" +
+                                "<div class='my-message message-document'>" +
+                                "<div class='my-message-inner'>" +
+                                "<div style='width: calc(100% - 20px); height: 40px; background-color: #eeeeee; border: 1px solid #dddddd; border-radius: 10px; margin-left: 10px; margin-right: 10px; display: flex; flex-flow: row nowrap; align-items: center;';>"+
+                                "<div style='width: calc(100% - 60px); margin-left: 10px; color: black; margin-right: 10px;'>"+message["attachment_name"]+"</div>"+
+                                "<div style='width: 40px; height: 40px; border: 1px solid #dddddd; border-radius: 50%; display: flex; justify-content: center; align-items: center;'>"+
+                                "<img src='img/download.png' width='20px' height='20px'>"+
+                                "</div>"+
+                                "</div>"+
+                                "<div style='color: #888888; font-size: 13px;'>" + sentTime + "</div>" +
+                                "</div>" +
+                                "<img src='" + profilePictureURL + "' width='40px' height='40px' style='position: absolute; top: 0; right: 5px; border-radius: 50%; margin-top: 10px;'>" +
+                                "</div>"
+                            );
                         }
                     }
                     messageSelections.push(0);
@@ -532,6 +564,68 @@ function setMessageClickListener() {
             }
         }
     });
+    $(".message-document").unbind().on("click", function() {
+        if (selecting) {
+            var index = $(this).parent().children().index(this);
+            var selected = messageSelections[index];
+            if (selected == 0) {
+                selected = 1;
+                totalSelection++;
+            } else {
+                selected = 0;
+                totalSelection--;
+            }
+            messageSelections[index] = selected;
+            if (selected == 0) {
+                $(this).css("background-color", "white");
+            } else if (selected == 1) {
+                $(this).css("background-color", "#c1ebea");
+            }
+            if (getLanguage() == 0) {
+                $("#messages-selected").html("" + totalSelection + " pesan dipilih");
+            } else if (getLanguage() == 1) {
+                $("#messages-selected").html("" + totalSelection + " messages selected");
+            }
+        } else {
+            var index = $(this).parent().children().index(this);
+            var message = messages[index];
+            var os = getMobileOperatingSystem();
+            if (os == "Android") {
+                Native.downloadFile(message["attachment"]);
+            }
+        }
+    });
+    $(".message-contact").unbind().on("click", function() {
+        if (selecting) {
+            var index = $(this).parent().children().index(this);
+            var selected = messageSelections[index];
+            if (selected == 0) {
+                selected = 1;
+                totalSelection++;
+            } else {
+                selected = 0;
+                totalSelection--;
+            }
+            messageSelections[index] = selected;
+            if (selected == 0) {
+                $(this).css("background-color", "white");
+            } else if (selected == 1) {
+                $(this).css("background-color", "#c1ebea");
+            }
+            if (getLanguage() == 0) {
+                $("#messages-selected").html("" + totalSelection + " pesan dipilih");
+            } else if (getLanguage() == 1) {
+                $("#messages-selected").html("" + totalSelection + " messages selected");
+            }
+        } else {
+            var index = $(this).parent().children().index(this);
+            var message = messages[index];
+            var os = getMobileOperatingSystem();
+            if (os == "Android") {
+                Native.addContact(message["contact_number"]);
+            }
+        }
+    });
 }
 
 function sendMessage() {
@@ -544,6 +638,7 @@ function sendMessage() {
     fd.append("receiver-id", opponentUserId);
     fd.append("message", message);
     fd.append("attachment-type", 0);
+    fd.append("attachment-url", "");
     fd.append("address", "");
     fd.append("latitude", 0);
     fd.append("longitude", 0);
@@ -1030,6 +1125,7 @@ function setFollowerClickListener() {
         fd.append("receiver-id", followerId);
         fd.append("message", message);
         fd.append("attachment-type", 0);
+        fd.append("attachment-url", "");
         fd.append("address", "");
         fd.append("latitude", 0);
         fd.append("longitude", 0);
@@ -1151,6 +1247,14 @@ function pickDocument() {
     var os = getMobileOperatingSystem();
     if (os == "Android") {
         Native.pickDocument();
+    } else if (os == "iOS") {
+    }
+}
+
+function pickContact() {
+    var os = getMobileOperatingSystem();
+    if (os == "Android") {
+        Native.pickContact();
     } else if (os == "iOS") {
     }
 }
@@ -1322,6 +1426,7 @@ function locationPicked(address, latitude, longitude) {
     fd.append("receiver-id", opponentUserId);
     fd.append("message", "");
     fd.append("attachment-type", "3");
+    fd.append("attachment-url", "");
     fd.append("address", address);
     fd.append("latitude", latitude);
     fd.append("longitude", longitude);
@@ -1402,6 +1507,182 @@ function locationPicked(address, latitude, longitude) {
     });
 }
 
-function documentUploaded(url) {
+function documentUploaded(url, fileName) {
+    $("#message").val("");
+    var fd = new FormData();
+    fd.append("receiver-id", opponentUserId);
+    fd.append("message", "");
+    fd.append("attachment-type", "4");
+    fd.append("attachment-url", url);
+    fd.append("file-name", fileName);
+    fd.append("address", address);
+    fd.append("latitude", latitude);
+    fd.append("longitude", longitude);
+    fd.append("language", getLanguage());
+    $.ajax({
+        type: 'POST',
+        url: SERVER_URL+"send-message.php",
+        data: fd,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function(a) {
+            var messageInfo = JSON.parse(a);
+            messages.push(messageInfo);
+            firebase.database().ref("message_notifications/" + opponentUserId).set({
+                "new_message": 1
+            });
+            $.ajax({
+                type: 'GET',
+                url: SERVER_URL + 'get-user-info-by-id.php',
+                data: {'user-id': userId},
+                dataType: 'text',
+                cache: false,
+                success: function (a) {
+                    if (a < 0) {
+                        // Error
+                    } else {
+                        var userInfo = JSON.parse(a);
+                        var profilePictureURL = userInfo["profile_picture_url"];
+                        if (profilePictureURL == "") {
+                            profilePictureURL = "img/profile-picture.png";
+                        }
+                        var sentDate = new Date();
+                        var hour = sentDate.getHours();
+                        hour %= 12;
+                        if (hour < 10) {
+                            hour = "0" + hour;
+                        }
+                        var minute = sentDate.getMinutes();
+                        if (minute < 10) {
+                            minute = "0" + minute;
+                        }
+                        var sentTime = hour + ":" + minute;
+                        if (sentDate.getHours() >= 12) {
+                            sentTime += (" " + "PM");
+                        } else {
+                            sentTime += (" " + "AM");
+                        }
+                        var name = userInfo["name"];
+                        if (name == "") {
+                            name = userInfo["email"];
+                        }
+                        $("#messages").append("" +
+                            "<div class='my-message message-document'>" +
+                            "<div class='my-message-inner'>" +
+                            "<div style='width: calc(100% - 20px); height: 40px; background-color: #eeeeee; border: 1px solid #dddddd; border-radius: 10px; margin-left: 10px; margin-right: 10px; display: flex; flex-flow: row nowrap; align-items: center;';>"+
+                            "<div style='width: calc(100% - 60px); margin-left: 10px; color: black; margin-right: 10px;'>"+fileName+"</div>"+
+                            "<div style='width: 40px; height: 40px; border: 1px solid #dddddd; border-radius: 50%; display: flex; justify-content: center; align-items: center;'>"+
+                            "<img src='img/download.png' width='20px' height='20px'>"+
+                            "</div>"+
+                            "</div>"+
+                            "<div style='color: #888888; font-size: 13px;'>" + sentTime + "</div>" +
+                            "</div>" +
+                            "<img src='" + profilePictureURL + "' width='40px' height='40px' style='position: absolute; top: 0; right: 5px; border-radius: 50%; margin-top: 10px;'>" +
+                            "</div>"
+                        ).css("margin-bottom", "100px");
+                        messageSelections.push(0);
+                        setMessageClickListener();
+                        scrollToBottom();
+                        selecting = false;
+                        messageSelectionMenuShown = false;
+                        $(".message").css("background-color", "white");
+                        $("#message-selection-menu").hide();
+                        $("#select-messages-container").hide();
+                    }
+                }
+            });
+        }
+    });
+}
 
+function contactPicked(contactNumber, contactName) {
+    $("#message").val("");
+    var fd = new FormData();
+    fd.append("receiver-id", opponentUserId);
+    fd.append("message", "");
+    fd.append("attachment-type", "5");
+    fd.append("attachment-url", "");
+    fd.append("file-name", "");
+    fd.append("address", "");
+    fd.append("latitude", 0);
+    fd.append("longitude", 0);
+    fd.append("language", getLanguage());
+    fd.append("contact-name", contactName);
+    fd.append("contact-number", contactNumber);
+    $.ajax({
+        type: 'POST',
+        url: SERVER_URL+"send-message.php",
+        data: fd,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function(a) {
+            var messageInfo = JSON.parse(a);
+            messages.push(messageInfo);
+            firebase.database().ref("message_notifications/" + opponentUserId).set({
+                "new_message": 1
+            });
+            $.ajax({
+                type: 'GET',
+                url: SERVER_URL + 'get-user-info-by-id.php',
+                data: {'user-id': userId},
+                dataType: 'text',
+                cache: false,
+                success: function (a) {
+                    if (a < 0) {
+                        // Error
+                    } else {
+                        var userInfo = JSON.parse(a);
+                        var profilePictureURL = userInfo["profile_picture_url"];
+                        if (profilePictureURL == "") {
+                            profilePictureURL = "img/profile-picture.png";
+                        }
+                        var sentDate = new Date();
+                        var hour = sentDate.getHours();
+                        hour %= 12;
+                        if (hour < 10) {
+                            hour = "0" + hour;
+                        }
+                        var minute = sentDate.getMinutes();
+                        if (minute < 10) {
+                            minute = "0" + minute;
+                        }
+                        var sentTime = hour + ":" + minute;
+                        if (sentDate.getHours() >= 12) {
+                            sentTime += (" " + "PM");
+                        } else {
+                            sentTime += (" " + "AM");
+                        }
+                        var name = userInfo["name"];
+                        if (name == "") {
+                            name = userInfo["email"];
+                        }
+                        $("#messages").append("" +
+                            "<div class='my-message message-contact'>" +
+                            "<div class='my-message-inner'>" +
+                            "<div style='width: calc(100% - 20px); height: 40px; background-color: #eeeeee; border: 1px solid #dddddd; border-radius: 10px; margin-left: 10px; margin-right: 10px; display: flex; flex-flow: row nowrap; align-items: center;';>"+
+                            "<div style='width: calc(100% - 60px); margin-left: 10px; color: black; margin-right: 10px;'>"+name+"</div>"+
+                            "<div style='width: 40px; height: 40px; border: 1px solid #dddddd; border-radius: 50%; display: flex; justify-content: center; align-items: center;'>"+
+                            "<img src='img/user-2.png' width='20px' height='20px'>"+
+                            "</div>"+
+                            "</div>"+
+                            "<div style='color: #888888; font-size: 13px;'>" + sentTime + "</div>" +
+                            "</div>" +
+                            "<img src='" + profilePictureURL + "' width='40px' height='40px' style='position: absolute; top: 0; right: 5px; border-radius: 50%; margin-top: 10px;'>" +
+                            "</div>"
+                        ).css("margin-bottom", "100px");
+                        messageSelections.push(0);
+                        setMessageClickListener();
+                        scrollToBottom();
+                        selecting = false;
+                        messageSelectionMenuShown = false;
+                        $(".message").css("background-color", "white");
+                        $("#message-selection-menu").hide();
+                        $("#select-messages-container").hide();
+                    }
+                }
+            });
+        }
+    });
 }

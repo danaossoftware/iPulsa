@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<methodResponse>
+    <params>
+        <param>
+            <value>
+                <struct>
+                    <member>
+                        <name>RESPONSECODE</name>
+                        <value>
+                            <string>00</string>
+                        </value>
+                    </member>
+                    <member>
+                        <name>REQUESTID</name>
+                        <value>
+                            <string>123456789</string>
+                        </value>
+                    </member>
+                    <member>
+                        <name>MESSAGE</name>
+                        <value>
+                            <string>This is message</string>
+                        </value>
+                    </member>
+                </struct>
+            </value>
+        </param>
+    </params>
+</methodResponse>

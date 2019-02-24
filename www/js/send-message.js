@@ -1236,6 +1236,8 @@ function pickIcon() {
 }
 
 function pickLocation() {
+    $("#attachment").css("margin-bottom", "-240px");
+    attachmentShown = false;
     var os = getMobileOperatingSystem();
     if (os == "Android") {
         Native.pickLocation();
@@ -1683,6 +1685,24 @@ function contactPicked(contactNumber, contactName) {
                     }
                 }
             });
+        }
+    });
+}
+
+function videoCall() {
+    $("#loading-container").css("display", "flex").hide().fadeIn(300);
+    $.ajax({
+        type: 'GET',
+        url: SERVER_URL+'get-user-info-by-id.php',
+        data: {'user-id': opponentUserId},
+        cache: false,
+        success: function(a) {
+            $("#loading-container").fadeOut(300);
+            var userInfo = JSON.parse(a);
+            var os = getMobileOperatingSystem();
+            if (os == "Android") {
+                Native.videoCall(userInfo['phone']);
+            }
         }
     });
 }

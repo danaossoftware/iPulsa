@@ -6,6 +6,26 @@ var monthNamesEN = [
 var monthNamesID = [
     "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"
 ];
+var texts = [
+    "1", "Apakah Anda yakin pilihan Anda sudah benar?", "Are you sure your selection is correct?",
+    "2", "Beli", "Buy",
+    "3", "Mohon masukkan nomor telepon yang valid", "Please enter correct phone number",
+    "4", "Memuat...", "Getting data...",
+    "5", "Prabayar", "Prepaid",
+    "6", "Pascabayar", "Postpaid",
+    "7", "Non-Taglis", "Non Electricity Bills",
+    "8", "Harga", "Price",
+    "9", "Maaf, transaksi Anda gagal. Penyebab:", "Sorry, your transaction was failed. Cause:",
+    "10", "Tidak diketahui", "Unknown reason",
+    "11", "Transaksi berhasil.", "Transaction succeeded",
+    "12", "Saldo Anda tidak cukup. Apakah Anda ingin mengisinya sekarang?", "Your balance is not sufficient. Add funds now?",
+    "13", "Nominal", "Nominal",
+    "14", "Nomor Telepon", "Phone Number",
+    "15", "Paket Data", "Buy Data",
+    "16", "Keterangan", "Description",
+    "17", "Masukkan ID pelanggan/No. Meter", "Please enter customer ID/meter number",
+    "18", "Mohon masukkan ID pelanggan/no. meter", "Please enter customer ID or meter number"
+];
 
 $(document).ready(function () {
     var backFunctionExists = 0;
@@ -23,10 +43,10 @@ $(document).ready(function () {
     });
     $.ajax({
         type: 'GET',
-        url: SERVER_URL+'get-user-info.php',
+        url: SERVER_URL + 'get-user-info.php',
         dataType: 'text',
         cache: false,
-        success: function(a) {
+        success: function (a) {
             if (a < 0) {
                 // Error
             } else {
@@ -38,7 +58,7 @@ $(document).ready(function () {
                 $("#bar-profile-picture").attr("src", profilePictureURL);
             }
         },
-        error: function(a, b, c) {
+        error: function (a, b, c) {
         }
     });
 });
@@ -52,14 +72,14 @@ function showOrHideActionBar() {
 }
 
 function onDeviceReady() {
-    window.requestFileSystem(window.PERSISTENT, 0, function(fs) {
-        fs.root.getFile("a.txt", {create: true, exclusive: true}, function(fileEntry) {
-            fileEntry.createWriter(function(fw) {
+    window.requestFileSystem(window.PERSISTENT, 0, function (fs) {
+        fs.root.getFile("a.txt", {create: true, exclusive: true}, function (fileEntry) {
+            fileEntry.createWriter(function (fw) {
                 var blob = new Blob(["This is a text"], {type: "text/plain"});
                 fw.write(blob);
             });
         });
-    }, function(e) {
+    }, function (e) {
         alert(e.code);
     });
     document.addEventListener("backbutton", function () {
@@ -116,6 +136,15 @@ function formatBalance(balance, delimiter) {
 }
 
 function show(message) {
+    try {
+        $("#toast-msg").html(message);
+        $("#toast-container").css("display", "flex").hide().fadeIn(300);
+        setTimeout(function () {
+            $("#toast-container").fadeOut(300);
+        }, 3000);
+    } catch (e) {
+        console.log(e.toString());
+    }
     /*var os = getMobileOperatingSystem();
     if (os == "Android") {
         show(message);
@@ -189,14 +218,14 @@ function setDivClickListener() {
         var posX = $(this).offset().left,
             posY = $(this).offset().top,
             buttonWidth = $(this).width(),
-            buttonHeight =  $(this).height();
+            buttonHeight = $(this).height();
 
         // Add the element
         $(this).prepend("<span class='ripple'></span>");
 
 
         // Make it round!
-        if(buttonWidth >= buttonHeight) {
+        if (buttonWidth >= buttonHeight) {
             buttonHeight = buttonWidth;
         } else {
             buttonWidth = buttonHeight;
@@ -230,3 +259,55 @@ function showVideo(url) {
         Native.showVideo(url);
     }
 }
+
+function getInt(name) {
+    var os = getMobileOperatingSystem();
+    if (os == "Android") {
+        return Native.readInt(name, 0);
+    }
+    return 0;
+}
+
+function getText(id) {
+    id--;
+    if (id < 0) {
+        id = 0;
+    }
+    var lang = getInt("language");
+    if (lang === 0) {
+        return texts[id * 3 + 1];
+    } else if (lang === 1) {
+        return texts[id * 3 + 2];
+    }
+    return "";
+}
+
+function showLoading(msg) {
+    $("#loading-container").css("display", "flex").hide().fadeIn(300);
+}
+
+function hideLoading() {
+    $("#loading-container").fadeOut(300);
+}
+
+function showAlert(message) {
+    alert(message);
+}
+
+function formatMoney(n, c, d, t) {
+    var c = isNaN(c = Math.abs(c)) ? 2 : c,
+        d = d == undefined ? "." : d,
+        t = t == undefined ? "," : t,
+        s = n < 0 ? "-" : "",
+        i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
+        j = (j = i.length) > 3 ? j % 3 : 0;
+
+    var formattedMoney = s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+    if (formattedMoney.endsWith(",00")) {
+        formattedMoney = formattedMoney.substring(0, formattedMoney.lastIndexOf(","));
+    }
+    if (formattedMoney.endsWith(".00")) {
+        formattedMoney = formattedMoney.substring(0, formattedMoney.lastIndexOf("."));
+    }
+    return formattedMoney;
+};

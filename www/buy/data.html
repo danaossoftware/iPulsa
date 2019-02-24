@@ -3,9 +3,9 @@
     <script src="cordova.js"></script>
     <script src="../js/jquery.js"></script>
     <script src="../js/global.js"></script>
-    <script src="../js/topup.js"></script>
+    <script src="../js/data.js"></script>
     <link href="../css/global.css" rel="stylesheet">
-    <link href="../css/topup.css" rel="stylesheet">
+    <link href="../css/data.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -14,12 +14,17 @@
         <div onclick="window.history.back()" style="width: 50px; height: 100%; display: flex; justify-content: center; align-items: center;">
             <img src="../img/back-2.png" width="20px" height="20px">
         </div>
-        <div style="font-weight: bold;; color: white; font-size: 20px; margin-left: 10px;">Pulsa</div>
+        <div id="text2" style="color: white; font-size: 18px; margin-left: 10px;">Paket Data</div>
     </div>
-    <div id="text8" style="color: black; margin-left: 20px; margin-top: 10px;">Nomor Telepon</div>
+    <div id="text1" style="color: black; margin-left: 20px; margin-top: 5px;">Nomor Telepon</div>
     <div style="width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; display: flex; flex-flow: row nowrap; align-items: center; height: 50px; position: relative;">
         <div style="width: calc(100% - 55px); margin-top: 0; margin-right: 10px; position: relative; height: 25px;">
-            <input id="phone" type="text" style="position: absolute; left: 0; top: 0; width: 100%; height: calc(100% - 2px); border: 0; background: transparent;">
+            <div style="position: relative; width: 100%; height: calc(100% - 2px);">
+                <input id="phone" type="text" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; border: 0; background: transparent;">
+                <div onclick="clearPhoneField()" style="position: absolute; top: 0; right: 0; width: 25px; height: 100%; display: flex; justify-content: center; align-items: center;">
+                    <img src="../img/clear.png" width="15px" height="15px">
+                </div>
+            </div>
             <div style="position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background-color: #c7c7c7;"></div>
         </div>
         <img id="operator-img" onclick="changeOperator()" src="../img/xl.png" width="20px" height="20px" style="margin-right: 5px;">
@@ -27,61 +32,24 @@
             <img src="../img/phonebook.png" width="20px" height="20px">
         </div>
     </div>
-    <div style="width: calc(100% - 40px); margin-left: 20px; margin-right: 20px; height: 40px; border-radius: 5px; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); display: flex; flex-flow: row nowrap;">
-        <div id="promo-selector" onclick="choosePromo()" style="background-color: #069caa; width: 33%; display: flex; height: 100%; justify-content: center; align-items: center; border-top-left-radius: 5px; border-bottom-left-radius: 5px;">
-            <div id="promo-text" style="color: white;">Promo</div>
-        </div>
-        <div id="regular-selector" onclick="chooseRegular()" style="width: 33%; display: flex; height: 100%; justify-content: center; align-items: center;">
-            <div id="regular-text" style="color: #222222;">Reguler</div>
-        </div>
-        <div id="vip-selector" onclick="chooseVIP()" style="width: 34%; display: flex; height: 100%; justify-content: center; align-items: center; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
-            <div id="vip-text" style="color: #222222;">VIP</div>
-        </div>
+    <div id="prices" style="margin-left: 20px; padding: 10px; margin-right: 20px; margin-top: 15px; width: calc(100% - 60px); border-radius: 10px; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); display: flex; flex-flow: column nowrap;">
+        <!--<div style="display: flex; flex-flow: row nowrap; justify-content: space-between">
+            <div style="color: black;">Kuota</div>
+            <div style="color: black;">Harga</div>
+        </div>-->
     </div>
-    <div id="promo-ctr" style="margin-left: 20px; padding: 10px; margin-right: 20px; margin-top: 15px; width: calc(100% - 60px); border-radius: 10px; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); display: flex; flex-flow: column nowrap;">
-        <div style="display: flex; flex-flow: row nowrap; justify-content: space-between">
-            <div id="text1" style="color: black;">Nominal</div>
-            <div id="text2" style="color: black;">Harga</div>
-        </div>
-        <div id="promo-prices" style="margin-top: 5px;">
-            <!--<div style="display: flex; flex-flow: row nowrap; justify-content: space-between">
-                <div style="color: black;">Rp 1.234</div>
-                <div style="color: #069ca9;">Rp 1.234</div>
-            </div>-->
-        </div>
-    </div>
-    <div id="regular-ctr" style="margin-left: 20px; padding: 10px; margin-right: 20px; margin-top: 15px; width: calc(100% - 60px); border-radius: 10px; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); display: none; flex-flow: column nowrap;">
-        <div style="display: flex; flex-flow: row nowrap; justify-content: space-between">
-            <div id="text3" style="color: black;">Nominal</div>
-            <div id="text4" style="color: black;">Harga</div>
-        </div>
-        <div id="regular-prices" style="margin-top: 5px;">
-            <!--<div style="display: flex; flex-flow: row nowrap; justify-content: space-between">
-                <div style="color: black;">Rp 1.234</div>
-                <div style="color: #069ca9;">Rp 1.234</div>
-            </div>-->
-        </div>
-    </div>
-    <div id="vip-ctr" style="margin-left: 20px; padding: 10px; margin-right: 20px; margin-top: 15px; width: calc(100% - 60px); border-radius: 10px; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5); display: none; flex-flow: column nowrap;">
-        <div style="display: flex; flex-flow: row nowrap; justify-content: space-between">
-            <div id="text5" style="color: black;">Nominal</div>
-            <div id="text6" style="color: black;">Harga</div>
-        </div>
-        <div id="vip-prices" style="margin-top: 5px;">
-            <!--<div style="display: flex; flex-flow: row nowrap; justify-content: space-between">
-                <div style="color: black;">Rp 1.234</div>
-                <div style="color: #069ca9;">Rp 1.234</div>
-            </div>-->
-        </div>
+    <div style="width: calc(100% - 60px); margin-left: 20px; margin-top: 20px; margin-right: 20px; padding: 10px; background-color: #f2fef2; border: 1px solid #c8edc4; border-radius: 5px; display: flex; flex-flow: column nowrap;">
+        <div id="text4" style="color: #5ab25f;">Keterangan</div>
+        <div id="desc" style="color: #6b726a;"></div>
     </div>
     <div style="width: 100%; position: relative; height: 30px; margin-top: 20px;">
-        <div id="text7" style="position: absolute; left: 20px; top: 0; color: #222222;">Harga</div>
+        <div id="text3" style="position: absolute; left: 20px; top: 0; color: #222222;">Harga</div>
         <div id="price" style="position: absolute; right: 20px; top: 0; color: #222222;">Rp0</div>
     </div>
-    <button id="buy" onclick="buy()" class="button2" style="width: calc(100% - 40px); margin-left: 20px; margin-right: 20px;">Beli</button>
+    <button onclick="buy()" id="buy" class="button2" style="width: calc(100% - 40px); margin-left: 20px; margin-right: 20px;">Beli</button>
 </div>
 <div id="loading-container"
-     style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .5); display: flex; justify-content: center; align-items: center;">
+     style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .5); display: none; justify-content: center; align-items: center;">
     <div style="width: 150px; height: 150px; display: flex; justify-content: center; align-items: center; background-color: white; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .5);">
         <div class="loader"></div>
     </div>

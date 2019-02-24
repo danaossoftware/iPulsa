@@ -5,12 +5,17 @@
 
 @font-face {
     font-weight: bold;;
-    src: url('../font/Palanquin-Bold.ttf');
+    src: url('../font/Roboto-Medium.ttf');
 }
 
 @font-face {
     font-family: 'Mohave';
     src: url('../font/Mohave-Regular.otf') format("opentype");
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../font/Roboto-Regular.ttf');
 }
 
 @font-face {
@@ -39,7 +44,8 @@ body {
     margin: 0 auto;
     background-color: white;
     overflow-x: hidden;
-    /*font-family: 'PalanquinRegular', Arial;*/
+    font-family: 'Roboto', Arial;
+    font-size: 15px;
 }
 
 .input1 {
@@ -100,7 +106,7 @@ body {
     padding-left: 20px;
     padding-right: 20px;
     width: 100px;
-    transition: background-color .3s;
+    transition: background-color .2s;
 }
 
 .button2:active {
@@ -208,6 +214,18 @@ body {
     87.5% {
         box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
     }
+}
+
+button {
+    flex-shrink: 0;
+}
+
+input {
+    flex-shrink: 0;
+}
+
+div {
+    flex-shrink: 0;
 }
 
 .flat-button {
@@ -403,4 +421,24 @@ body {
         transform: scale(2);
         opacity: 0;
     }
+}
+
+.menu-item:active {
+    background-color: #eeeeee;
+}
+
+.checkbox {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid black;
+}
+
+.checkbox-active {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background-color: #069caa;
+    border: 0;
 }

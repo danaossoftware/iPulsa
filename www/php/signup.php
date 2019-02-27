@@ -1,18 +1,17 @@
 <?php
 include 'db.php';
-include 'get-ip.php';
-$name = $_GET["name"];
-$email = $_GET["email"];
-$password = $_GET["password"];
-$referral = $_GET["referral"];
+$name = $_POST["name"];
+$email = $_POST["email"];
+$password = $_POST["password"];
+$referral = $_POST["referral"];
 $userId = uniqid();
-//$ip = getIP();
-if ($c->query("INSERT INTO users (id, name, email, password, referral) VALUES ('" . $userId . "', '" . $name . "', '" . $email . "', '" . $password . "', '" . $referral . "')")) {
-    //$c->query("INSERT INTO sessions (id, user_id, ip, last_active) VALUES ('" . uniqid() . "', '" . $userId . "', '" . $ip . "', " . round(microtime(true)*1000) . ")");
-    session_id("ipulsa");
-    session_start();
-    $_SESSION["ipulsa_user_id"] = $userId;
-    echo 0;
-} else {
-    echo -1;
+$results = $c->query("SELECT * FROM users WHERE email='" . $email. "'");
+if ($results && $results->num_rows > 0) {
+	echo -1;
+	return;
 }
+$c->query("INSERT INTO users (id, name, email, password, referral) VALUES ('" . $userId . "', '" . $name . "', '" . $email . "', '" . $password . "', '" . $referral . "')");
+session_id("ipulsa");
+session_start();
+$_SESSION["ipulsa_user_id"] = $userId;
+echo 0;

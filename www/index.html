@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>iPulsa</title>
-    <meta http-equiv="Content-Security-Policy" content="*">
     <script src="cordova.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/global.js"></script>
@@ -12,8 +11,8 @@
             url: 'http://danaos.xyz/ipulsa/www/php/check-session.php',
             dataType: 'text',
             cache: false,
-            success: function (a) {
-                var responseCode = parseInt(a);
+            success: function (responseCode) {
+                Native.log("Response: "+responseCode);
                 if (responseCode == 0) {
                     // Logged in
                     window.location.href = "home.html";

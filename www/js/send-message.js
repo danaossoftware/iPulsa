@@ -1697,11 +1697,31 @@ function videoCall() {
         data: {'user-id': opponentUserId},
         cache: false,
         success: function(a) {
+            Native.log("Response: "+a);
             $("#loading-container").fadeOut(300);
             var userInfo = JSON.parse(a);
             var os = getMobileOperatingSystem();
             if (os == "Android") {
                 Native.videoCall(userInfo['phone']);
+            }
+        }
+    });
+}
+
+function voiceCall() {
+    $("#loading-container").css("display", "flex").hide().fadeIn(300);
+    $.ajax({
+        type: 'GET',
+        url: SERVER_URL+'get-user-info-by-id.php',
+        data: {'user-id': opponentUserId},
+        cache: false,
+        success: function(a) {
+            Native.log("Response: "+a);
+            $("#loading-container").fadeOut(300);
+            var userInfo = JSON.parse(a);
+            var os = getMobileOperatingSystem();
+            if (os == "Android") {
+                Native.voiceCall(userInfo['phone']);
             }
         }
     });

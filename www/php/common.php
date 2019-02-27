@@ -5,5 +5,5 @@ function getUserID() {
     $c->select_db("u954666570_pulsa");
 	session_id("ipulsa");
 	session_start();
-	echo $_SESSION["ipulsa_user_id"];
+	return $_SESSION["ipulsa_user_id"];
 };

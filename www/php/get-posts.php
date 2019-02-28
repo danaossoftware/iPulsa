@@ -3,8 +3,8 @@ include 'db.php';
 include 'common.php';
 $userId = getUserID();
 $results = $c->query("SELECT * FROM followers WHERE follower_id='" . $userId . "'");
+$posts = [];
 if ($results && $results->num_rows > 0) {
-    $posts = [];
     $count = mysqli_num_rows($c->query("SELECT * FROM feed"));
     $cmd = "SELECT * FROM feed WHERE user_id=";
     $cnt = mysqli_num_rows($results);
@@ -23,7 +23,5 @@ if ($results && $results->num_rows > 0) {
     while ($row = $results->fetch_assoc()) {
         array_push($posts, $row);
     }
-    echo json_encode($posts);
-} else {
-    echo -1;
 }
+echo json_encode($posts);

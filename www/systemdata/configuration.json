@@ -1,0 +1,873 @@
+{
+	"settings": {
+		"ppob": {
+			"server": "111.1111.111.111",
+			"idmitra": "BP0001",
+			"phone": "081123456789",
+			"requestid": "BP0001",
+			"pin": "2023",
+			"user": "7027CE",
+			"password": "4DAD4E"
+		},
+		"prefixes": {
+			"tsel": {
+				"prefix": [
+					"0811",
+					"0812",
+					"0813",
+					"0821",
+					"0822",
+					"0823",
+					"0852",
+					"0853",
+					"0851"
+				]
+			},
+			"indosat": {
+				"prefix": [
+					"0814",
+					"0815",
+					"0816",
+					"0855",
+					"0856",
+					"0857",
+					"0858"
+				]
+			},
+			"xl": {
+				"prefix": [
+					"0817",
+					"0818",
+					"0819",
+					"0859",
+					"0877",
+					"0878"
+				]
+			},
+			"three": {
+				"prefix": [
+					"0895",
+					"0896",
+					"0897",
+					"0898",
+					"0899"
+				]
+			},
+			"smartfren": {
+				"prefix": [
+					"0881",
+					"0882",
+					"0883",
+					"0884",
+					"0885",
+					"0886",
+					"0887",
+					"0888",
+					"0889"
+				]
+			},
+			"ceria": {
+				"prefix": "0828"
+			},
+			"axis": {
+				"prefix": [
+					"0838",
+					"0831",
+					"0832",
+					"0833"
+				]
+			}
+		},
+		"prices": {
+			"pln": {
+				"prabayar": {
+					"detail": [
+						{
+							"price": "20000",
+							"code": "PR20"
+						},
+						{
+							"price": "50000",
+							"code": "PR50"
+						},
+						{
+							"price": "100000",
+							"code": "PR100"
+						},
+						{
+							"price": "200000",
+							"code": "PR200"
+						},
+						{
+							"price": "500000",
+							"code": "PR500"
+						},
+						{
+							"price": "1000000",
+							"code": "PR1000"
+						}
+					]
+				},
+				"pascabayar": {
+					"detail": [
+						{
+							"va": "450",
+							"price": "0",
+							"code": "PC450"
+						},
+						{
+							"va": "900",
+							"price": "0",
+							"code": "PC900"
+						},
+						{
+							"va": "1300",
+							"price": "0",
+							"code": "PC1300"
+						},
+						{
+							"va": "2200",
+							"price": "0",
+							"code": "PC2200"
+						},
+						{
+							"va": "3350",
+							"price": "0",
+							"code": "PC3350"
+						},
+						{
+							"va": "6600",
+							"price": "0",
+							"code": "PC6600"
+						}
+					]
+				},
+				"nontaglis": {
+					"detail": [
+						{
+							"name": "Sambungan Baru",
+							"price": "100000",
+							"code": "NT1"
+						},
+						{
+							"name": "Ubah Daya",
+							"price": "100000",
+							"code": "NT2"
+						},
+						{
+							"name": "Migrasi",
+							"price": "100000",
+							"code": "NT3"
+						},
+						{
+							"name": "Pemasangan Kembali",
+							"price": "100000",
+							"code": "NT4"
+						},
+						{
+							"name": "Penerangan Sementara",
+							"price": "100000",
+							"code": "NT5"
+						}
+					]
+				}
+			},
+			"topup": {
+				"promo": {
+					"xl": {
+						"detail": [
+							{
+								"balance": "5000",
+								"price": "5450",
+								"code": "XP5"
+							},
+							{
+								"balance": "10000",
+								"price": "10450",
+								"code": "XP10"
+							},
+							{
+								"balance": "15000",
+								"price": "14300",
+								"code": "XP15"
+							},
+							{
+								"balance": "25000",
+								"price": "23500",
+								"code": "XP25"
+							},
+							{
+								"balance": "30000",
+								"price": "27900",
+								"code": "XP30"
+							},
+							{
+								"balance": "50000",
+								"price": "47500",
+								"code": "XP50"
+							},
+							{
+								"balance": "100000",
+								"price": "95500",
+								"code": "XP100"
+							}
+						]
+					},
+					"tsel": {
+						"detail": [
+							{
+								"balance": "5000",
+								"price": "4900",
+								"code": "MP5"
+							},
+							{
+								"balance": "10000",
+								"price": "9750",
+								"code": "MP10"
+							},
+							{
+								"balance": "20000",
+								"price": "19200",
+								"code": "MP20"
+							},
+							{
+								"balance": "25000",
+								"price": "24000",
+								"code": "MP25"
+							},
+							{
+								"balance": "50000",
+								"price": "47250",
+								"code": "MP50"
+							},
+							{
+								"balance": "100000",
+								"price": "94250",
+								"code": "MP100"
+							}
+						]
+					},
+					"three": {
+						"detail": [
+							{
+								"balance": "5000",
+								"price": "4900",
+								"code": "TRB5"
+							},
+							{
+								"balance": "10000",
+								"price": "9900",
+								"code": "TRB10"
+							},
+							{
+								"balance": "20000",
+								"price": "18900",
+								"code": "TRB20"
+							},
+							{
+								"balance": "25000",
+								"price": "23900",
+								"code": "TRB25"
+							},
+							{
+								"balance": "50000",
+								"price": "23900",
+								"code": "TRB50"
+							}
+						]
+					},
+					"indosat": {
+						"detail": [
+							{
+								"balance": "5000",
+								"price": "5400",
+								"code": "MB5"
+							},
+							{
+								"balance": "10000",
+								"price": "10350",
+								"code": "MB10"
+							},
+							{
+								"balance": "20000",
+								"price": "19300",
+								"code": "MB20"
+							},
+							{
+								"balance": "25000",
+								"price": "23300",
+								"code": "MB25"
+							},
+							{
+								"balance": "50000",
+								"price": "47800",
+								"code": "MB50"
+							},
+							{
+								"balance": "100000",
+								"price": "94800",
+								"code": "MB100"
+							}
+						]
+					},
+					"smartfren": {
+						"detail": [
+							{
+								"balance": "5000",
+								"price": "5020",
+								"code": "SMH5"
+							},
+							{
+								"balance": "10000",
+								"price": "9970",
+								"code": "SMH10"
+							},
+							{
+								"balance": "20000",
+								"price": "19785",
+								"code": "SMH20"
+							},
+							{
+								"balance": "25000",
+								"price": "24650",
+								"code": "SMH25"
+							},
+							{
+								"balance": "30000",
+								"price": "29780",
+								"code": "SMH30"
+							},
+							{
+								"balance": "50000",
+								"price": "48925",
+								"code": "SMH50"
+							},
+							{
+								"balance": "60000",
+								"price": "58690",
+								"code": "SMH60"
+							},
+							{
+								"balance": "100000",
+								"price": "97250",
+								"code": "SMH100"
+							},
+							{
+								"balance": "150000",
+								"price": "148100",
+								"code": "SMH150"
+							},
+							{
+								"balance": "200000",
+								"price": "196900",
+								"code": "SMH200"
+							},
+							{
+								"balance": "300000",
+								"price": "296100",
+								"code": "SMH300"
+							},
+							{
+								"balance": "500000",
+								"price": "496100",
+								"code": "SMH500"
+							}
+						]
+					}
+				},
+				"regular": {
+					"xl": {
+						"detail": [
+							{
+								"balance": "5000",
+								"price": "5600",
+								"code": "X5"
+							},
+							{
+								"balance": "10000",
+								"price": "10700",
+								"code": "X10"
+							},
+							{
+								"balance": "25000",
+								"price": "24625",
+								"code": "X25"
+							},
+							{
+								"balance": "30000",
+								"price": "29645",
+								"code": "X30"
+							},
+							{
+								"balance": "50000",
+								"price": "49190",
+								"code": "X50"
+							},
+							{
+								"balance": "100000",
+								"price": "98075",
+								"code": "X100"
+							}
+						]
+					},
+					"tsel": {
+						"detail": [
+							{
+								"balance": "5000",
+								"price": "5245",
+								"code": "TH5"
+							},
+							{
+								"balance": "10000",
+								"price": "10065",
+								"code": "TH10"
+							},
+							{
+								"balance": "20000",
+								"price": "19825",
+								"code": "TH20"
+							},
+							{
+								"balance": "25000",
+								"price": "24410",
+								"code": "TH25"
+							},
+							{
+								"balance": "50000",
+								"price": "48790",
+								"code": "TH50"
+							},
+							{
+								"balance": "100000",
+								"price": "96075",
+								"code": "TH100"
+							}
+						]
+					},
+					"three": {
+						"detail": [
+							{
+								"balance": "5000",
+								"price": "5225",
+								"code": "TRP5"
+							},
+							{
+								"balance": "10000",
+								"price": "10025",
+								"code": "TRP10"
+							},
+							{
+								"balance": "20000",
+								"price": "19490",
+								"code": "TRP20"
+							},
+							{
+								"balance": "50000",
+								"price": "47695",
+								"code": "TRP50"
+							},
+							{
+								"balance": "100000",
+								"price": "95720",
+								"code": "TRP100"
+							}
+						]
+					},
+					"indosat": {
+						"detail": [
+							{
+								"balance": "5000",
+								"price": "5675",
+								"code": "IP5"
+							},
+							{
+								"balance": "10000",
+								"price": "10575",
+								"code": "IP10"
+							},
+							{
+								"balance": "25000",
+								"price": "24425",
+								"code": "IP25"
+							},
+							{
+								"balance": "50000",
+								"price": "47750",
+								"code": "IP50"
+							},
+							{
+								"balance": "100000",
+								"price": "95275",
+								"code": "IP100"
+							}
+						]
+					},
+					"smartfren": {
+						"detail": [
+							{
+								"balance": "5000",
+								"price": "4900",
+								"code": "SMP5"
+							},
+							{
+								"balance": "10000",
+								"price": "9820",
+								"code": "SMP10"
+							},
+							{
+								"balance": "20000",
+								"price": "19600",
+								"code": "SMP20"
+							},
+							{
+								"balance": "25000",
+								"price": "24500",
+								"code": "SMP25"
+							},
+							{
+								"balance": "30000",
+								"price": "29425",
+								"code": "SMP30"
+							},
+							{
+								"balance": "50000",
+								"price": "48900",
+								"code": "SMP50"
+							},
+							{
+								"balance": "60000",
+								"price": "58525",
+								"code": "SMP60"
+							},
+							{
+								"balance": "100000",
+								"price": "97320",
+								"code": "SMP100"
+							}
+						]
+					}
+				},
+				"vip": {
+					"xl": {
+						"detail": [
+							{
+								"balance": "5000",
+								"price": "5625",
+								"code": "XH5"
+							},
+							{
+								"balance": "10000",
+								"price": "10725",
+								"code": "XH10"
+							},
+							{
+								"balance": "15000",
+								"price": "15000",
+								"code": "XH15"
+							},
+							{
+								"balance": "25000",
+								"price": "24750",
+								"code": "XH25"
+							},
+							{
+								"balance": "30000",
+								"price": "29750",
+								"code": "XH30"
+							},
+							{
+								"balance": "50000",
+								"price": "49425",
+								"code": "XH50"
+							},
+							{
+								"balance": "100000",
+								"price": "98500",
+								"code": "XH100"
+							}
+						]
+					},
+					"tsel": {
+						"detail": [
+							{
+								"balance": "5000",
+								"price": "5325",
+								"code": "MD5"
+							},
+							{
+								"balance": "10000",
+								"price": "10100",
+								"code": "MD10"
+							},
+							{
+								"balance": "20000",
+								"price": "19850",
+								"code": "MD20"
+							},
+							{
+								"balance": "25000",
+								"price": "24475",
+								"code": "MD25"
+							},
+							{
+								"balance": "50000",
+								"price": "48825",
+								"code": "MD50"
+							},
+							{
+								"balance": "100000",
+								"price": "96675",
+								"code": "MD100"
+							}
+						]
+					},
+					"three": {
+						"detail": [
+							{
+								"balance": "1000",
+								"price": "1195",
+								"code": "TRH1"
+							},
+							{
+								"balance": "2000",
+								"price": "2350",
+								"code": "TRH2"
+							},
+							{
+								"balance": "3000",
+								"price": "3135",
+								"code": "TRH3"
+							},
+							{
+								"balance": "4000",
+								"price": "4328",
+								"code": "TRH4"
+							},
+							{
+								"balance": "5000",
+								"price": "5275",
+								"code": "TRH5"
+							},
+							{
+								"balance": "10000",
+								"price": "10200",
+								"code": "TRH10"
+							},
+							{
+								"balance": "15000",
+								"price": "14670",
+								"code": "TRH15"
+							},
+							{
+								"balance": "20000",
+								"price": "19550",
+								"code": "TRH20"
+							},
+							{
+								"balance": "25000",
+								"price": "24435",
+								"code": "TRH25"
+							},
+							{
+								"balance": "30000",
+								"price": "29300",
+								"code": "TRH30"
+							},
+							{
+								"balance": "50000",
+								"price": "48850",
+								"code": "TRH50"
+							},
+							{
+								"balance": "100000",
+								"price": "97625",
+								"code": "TRH100"
+							}
+						]
+					},
+					"indosat": {
+						"detail": [
+							{
+								"balance": "5000",
+								"price": "5740",
+								"code": "IH5"
+							},
+							{
+								"balance": "10000",
+								"price": "10725",
+								"code": "IH10"
+							},
+							{
+								"balance": "20000",
+								"price": "19850",
+								"code": "IH20"
+							},
+							{
+								"balance": "25000",
+								"price": "24800",
+								"code": "IH25"
+							},
+							{
+								"balance": "30000",
+								"price": "29450",
+								"code": "IH30"
+							},
+							{
+								"balance": "50000",
+								"price": "48950",
+								"code": "IH50"
+							},
+							{
+								"balance": "100000",
+								"price": "97100",
+								"code": "IH100"
+							}
+						]
+					}
+				}
+			},
+			"data": {
+				"xl": {
+					"detail": [
+						{
+							"price": "15000",
+							"limit": "1 GB 24-jam",
+							"desc": "Kuota 1 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "XL1"
+						},
+						{
+							"price": "55000",
+							"limit": "5 GB 24-jam",
+							"desc": "Kuota 5 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "XL5"
+						},
+						{
+							"price": "100000",
+							"limit": "10 GB 24-jam",
+							"desc": "Kuota 10 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "XL10"
+						},
+						{
+							"price": "189000",
+							"limit": "20 GB 24-jam",
+							"desc": "Kuota 20 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "XL20"
+						}
+					]
+				},
+				"tsel": {
+					"detail": [
+						{
+							"price": "15000",
+							"limit": "1 GB 24-jam",
+							"desc": "Kuota 1 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "TS1"
+						},
+						{
+							"price": "55000",
+							"limit": "5 GB 24-jam",
+							"desc": "Kuota 5 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "TS5"
+						},
+						{
+							"price": "100000",
+							"limit": "10 GB 24-jam",
+							"desc": "Kuota 10 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "TS10"
+						},
+						{
+							"price": "189000",
+							"limit": "20 GB 24-jam",
+							"desc": "Kuota 20 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "TS20"
+						}
+					]
+				},
+				"indosat": {
+					"detail": [
+						{
+							"price": "15000",
+							"limit": "1 GB 24-jam",
+							"desc": "Kuota 1 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "IN1"
+						},
+						{
+							"price": "55000",
+							"limit": "5 GB 24-jam",
+							"desc": "Kuota 5 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "IN5"
+						},
+						{
+							"price": "100000",
+							"limit": "10 GB 24-jam",
+							"desc": "Kuota 10 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "IN10"
+						},
+						{
+							"price": "189000",
+							"limit": "20 GB 24-jam",
+							"desc": "Kuota 20 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "IN20"
+						}
+					]
+				},
+				"three": {
+					"detail": [
+						{
+							"price": "15000",
+							"limit": "1 GB 24-jam",
+							"desc": "Kuota 1 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "TH1"
+						},
+						{
+							"price": "55000",
+							"limit": "5 GB 24-jam",
+							"desc": "Kuota 5 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "TH5"
+						},
+						{
+							"price": "100000",
+							"limit": "10 GB 24-jam",
+							"desc": "Kuota 10 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "TH10"
+						},
+						{
+							"price": "189000",
+							"limit": "20 GB 24-jam",
+							"desc": "Kuota 20 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "TH20"
+						}
+					]
+				},
+				"smartfren": {
+					"detail": [
+						{
+							"price": "15000",
+							"limit": "1 GB 24-jam",
+							"desc": "Kuota 1 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "SF1"
+						},
+						{
+							"price": "55000",
+							"limit": "5 GB 24-jam",
+							"desc": "Kuota 5 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "SF5"
+						},
+						{
+							"price": "100000",
+							"limit": "10 GB 24-jam",
+							"desc": "Kuota 10 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "SF10"
+						},
+						{
+							"price": "189000",
+							"limit": "20 GB 24-jam",
+							"desc": "Kuota 20 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "SF20"
+						}
+					]
+				}
+			}
+		}
+	}
+}

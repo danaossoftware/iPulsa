@@ -866,6 +866,34 @@
 							"code": "SF20"
 						}
 					]
+				},
+				"axis": {
+					"detail": [
+						{
+							"price": "15000",
+							"limit": "1 GB 24-jam",
+							"desc": "Kuota 1 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "SF1"
+						},
+						{
+							"price": "55000",
+							"limit": "5 GB 24-jam",
+							"desc": "Kuota 5 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "SF5"
+						},
+						{
+							"price": "100000",
+							"limit": "10 GB 24-jam",
+							"desc": "Kuota 10 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "SF10"
+						},
+						{
+							"price": "189000",
+							"limit": "20 GB 24-jam",
+							"desc": "Kuota 20 GB di jaringan 2G/3G/4G, Masa aktif 30 hari.",
+							"code": "SF20"
+						}
+					]
 				}
 			}
 		}

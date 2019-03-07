@@ -1,7 +1,7 @@
 {
   "settings": {
     "ppob": {
-      "server": "111.1111.111.111",
+      "server": "103.103.192.158:8002/api/h2hxml",
       "idmitra": "BP0001",
       "phone": "081123456789",
       "requestid": "BP0001",

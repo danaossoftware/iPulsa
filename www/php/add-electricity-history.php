@@ -1,8 +1,6 @@
 <?php
 include 'db.php';
-session_id("ipulsa");
-session_start();
-$userId = $_SESSION["ipulsa_user_id"];
+$userId = $_POST["user_id"];
 $type = intval($_POST["type"]);
 $nominal = intval($_POST["nominal"]);
 $status = intval($_POST["status"]); //0 = Failed, 1 = Success

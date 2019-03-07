@@ -1,8 +1,6 @@
 <?php
 include 'db.php';
-session_id("ipulsa");
-session_start();
-$userId = $_SESSION["ipulsa_user_id"];
+$userId = $_POST["user_id"];
 $type = intval($_POST["type"]);
 $productCode = $_POST["product_code"];
 $nominal = intval($_POST["nominal"]);

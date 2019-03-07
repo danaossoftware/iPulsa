@@ -1,8 +1,6 @@
 <?php
 include 'db.php';
-session_id("ipulsa");
-session_start();
-$userId = $_SESSION["ipulsa_user_id"];
+$userId = $_POST["user_id"];
 $name = $_POST["name"];
 $phone = $_POST["phone"];
 $password = $_POST["password"];

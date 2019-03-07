@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b52ddf1e-4576-4183-bfcb-e98e680e7494" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/php/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/php/db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/php/update-profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/php/update-profile.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,20 +12,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/php/db.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="51">
+              <caret line="3" column="34" lean-forward="true" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/php/is-user-exists-by-id.php">
+        <entry file="file://$PROJECT_DIR$/www/php/get-user-info-by-id.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+            <state relative-caret-position="153">
+              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/php/update-profile.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="103" lean-forward="true" selection-start-line="5" selection-start-column="103" selection-end-line="5" selection-end-column="103" />
             </state>
           </provider>
         </entry>
@@ -98,7 +106,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>append(&quot;&lt;/</find>
       <find>nontaglis</find>
       <find>nontaglis-prices</find>
       <find>nonTaglis-prices</find>
@@ -128,6 +135,7 @@
       <find>$userId = $_SESSION[&quot;ipulsa_user_id&quot;];</find>
       <find>userid</find>
       <find>email</find>
+      <find>password</find>
     </findStrings>
     <replaceStrings>
       <replace>getUserID();</replace>
@@ -198,7 +206,6 @@
         <option value="$PROJECT_DIR$/www/php/send-reset-email.php" />
         <option value="$PROJECT_DIR$/www/php/a.php" />
         <option value="$PROJECT_DIR$/www/php/login.php" />
-        <option value="$PROJECT_DIR$/www/php/update-profile.php" />
         <option value="$PROJECT_DIR$/www/php/generate-transaction-id.php" />
         <option value="$PROJECT_DIR$/www/php/add-gojek-history.php" />
         <option value="$PROJECT_DIR$/www/php/get-balance.php" />
@@ -213,6 +220,7 @@
         <option value="$PROJECT_DIR$/www/php/is-user-exists.php" />
         <option value="$PROJECT_DIR$/www/php/add-user.php" />
         <option value="$PROJECT_DIR$/www/php/db.php" />
+        <option value="$PROJECT_DIR$/www/php/update-profile.php" />
       </list>
     </option>
   </component>
@@ -360,12 +368,12 @@
       <workItem from="1551967560071" duration="1757000" />
       <workItem from="1551969815542" duration="1216000" />
       <workItem from="1551974349968" duration="1024000" />
-      <workItem from="1551976241295" duration="241000" />
+      <workItem from="1551976241295" duration="1035000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62395000" />
+    <option name="totallyTimeSpent" value="63189000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -659,13 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/get-user-info-by-id.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/send-message.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -877,13 +878,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/php/login.php" />
     <entry file="file://$PROJECT_DIR$/www/php/check-session.php" />
-    <entry file="file://$PROJECT_DIR$/www/php/update-profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/php/generate-transaction-id.php" />
     <entry file="file://$PROJECT_DIR$/www/php/add-transaction.php" />
     <entry file="file://$PROJECT_DIR$/www/php/add-gojek-history.php">
@@ -959,8 +953,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/php/db.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="51">
+          <caret line="3" column="34" lean-forward="true" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/php/get-user-info-by-id.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/php/update-profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="103" lean-forward="true" selection-start-line="5" selection-start-column="103" selection-end-line="5" selection-end-column="103" />
         </state>
       </provider>
     </entry>

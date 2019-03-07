@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b52ddf1e-4576-4183-bfcb-e98e680e7494" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/www/php/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/php/db.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/php/is-user-exists-by-email.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/php/is-user-exists-by-phone.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,28 +15,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/php/add-gojek-history.php">
+        <entry file="file://$PROJECT_DIR$/www/php/db.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+            <state relative-caret-position="51">
+              <caret line="3" column="34" lean-forward="true" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/php/get-balance.php">
+        <entry file="file://$PROJECT_DIR$/www/php/is-user-exists.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="136">
+              <caret line="8" column="1" lean-forward="true" selection-end-line="8" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/php/is-user-exists-by-email.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="1" lean-forward="true" selection-end-line="8" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/php/db.php">
+        <entry file="file://$PROJECT_DIR$/www/php/is-user-exists-by-phone.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
+            <state relative-caret-position="136">
+              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -79,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/www/systemdata/configuration.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -88,7 +99,7 @@
         <entry file="file://$PROJECT_DIR$/www/php/add-user.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+              <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -97,8 +108,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>va</find>
-      <find>Va</find>
       <find>append(&quot;&lt;/</find>
       <find>nontaglis</find>
       <find>nontaglis-prices</find>
@@ -127,6 +136,8 @@
       <find>danaos.xyz</find>
       <find>$_SESSION[&quot;ipulsa_user_id&quot;]</find>
       <find>$userId = $_SESSION[&quot;ipulsa_user_id&quot;];</find>
+      <find>userid</find>
+      <find>email</find>
     </findStrings>
     <replaceStrings>
       <replace>getUserID();</replace>
@@ -161,8 +172,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/www/php/get-ip.php" />
-        <option value="$PROJECT_DIR$/www/js/choose-follower.js" />
         <option value="$PROJECT_DIR$/www/php/upload-video.php" />
         <option value="$PROJECT_DIR$/www/php/is-post-liked.php" />
         <option value="$PROJECT_DIR$/www/php/find-users.php" />
@@ -212,6 +221,8 @@
         <option value="$PROJECT_DIR$/www/php/add-grab-history.php" />
         <option value="$PROJECT_DIR$/www/systemdata/configuration.json" />
         <option value="$PROJECT_DIR$/www/php/db.php" />
+        <option value="$PROJECT_DIR$/www/php/is-user-exists-by-email.php" />
+        <option value="$PROJECT_DIR$/www/php/is-user-exists-by-phone.php" />
       </list>
     </option>
   </component>
@@ -356,18 +367,19 @@
       <workItem from="1551853096604" duration="482000" />
       <workItem from="1551854578327" duration="33000" />
       <workItem from="1551962727118" duration="1244000" />
-      <workItem from="1551967560071" duration="1615000" />
+      <workItem from="1551967560071" duration="1757000" />
+      <workItem from="1551969815542" duration="697000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59772000" />
+    <option name="totallyTimeSpent" value="60611000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19742814" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20045386" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -392,23 +404,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/css/send-message.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2006">
-          <caret line="118" column="1" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/add-comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/send-mail.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/php/send-message.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -430,20 +425,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/logout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/signup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/www/php/logout.php" />
+    <entry file="file://$PROJECT_DIR$/www/php/signup.php" />
     <entry file="file://$PROJECT_DIR$/www/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -900,20 +883,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/check-session.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/www/php/login.php" />
+    <entry file="file://$PROJECT_DIR$/www/php/check-session.php" />
     <entry file="file://$PROJECT_DIR$/www/php/update-profile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -921,13 +892,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/generate-transaction-id.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/www/php/generate-transaction-id.php" />
+    <entry file="file://$PROJECT_DIR$/www/php/add-transaction.php" />
     <entry file="file://$PROJECT_DIR$/www/php/add-gojek-history.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -935,17 +901,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/php/add-transaction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/php/get-balance.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -980,21 +939,42 @@
     <entry file="file://$PROJECT_DIR$/www/systemdata/configuration.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/php/add-user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/php/db.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
+        <state relative-caret-position="51">
+          <caret line="3" column="34" lean-forward="true" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/php/is-user-exists.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="1" lean-forward="true" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/php/is-user-exists-by-email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="1" lean-forward="true" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/php/is-user-exists-by-phone.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
         </state>
       </provider>
     </entry>

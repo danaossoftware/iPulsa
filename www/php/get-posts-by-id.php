@@ -1,7 +1,8 @@
 <?php
 include 'db.php';
-$userId = $_GET["user-id"];
-$results = $c->query("SELECT * FROM feed WHERE user_id='" . $userId . "'");
+$userId = $_POST["user-id"];
+$start = intval($_POST["start"]);
+$results = $c->query("SELECT * FROM feed WHERE user_id='" . $userId . "' LIMIT " . $start . ",10");
 $posts = [];
 while ($row = $results->fetch_assoc()) {
     array_push($posts, $row);

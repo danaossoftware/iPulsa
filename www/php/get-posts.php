@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 include 'common.php';
-$userId = getUserID();
+$userId = $_POST["user_id"];
 $results = $c->query("SELECT * FROM followers WHERE follower_id='" . $userId . "'");
 $posts = [];
 if ($results && $results->num_rows > 0) {

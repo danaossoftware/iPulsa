@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
-$userId = $_GET["user-id"];
+$userId = $_POST["user-id"];
 $results = $c->query("SELECT * FROM followers WHERE user_id='" . $userId . "'");
 $followerCount = 0;
 if ($results) {

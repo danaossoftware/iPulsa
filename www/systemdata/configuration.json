@@ -202,6 +202,32 @@
           ]
         }
       },
+	  "telkom": {
+	    "indihome": {
+		  "detail": [
+		    {
+			  "price": 0,
+			  "name": "USeeTV Starter Pack 25 Channel"
+			},
+		    {
+			  "price": 0,
+			  "name": "USeeTV Starter Pack 51 Channel"
+			},
+		    {
+			  "price": 0,
+			  "name": "USeeTV Starter Pack 51 Channel+1 Mini Pack"
+			}
+		  ]
+		},
+		"telp": {
+		  "detail": [
+		    {
+			  "name": "Gratis Panggilan Lokal ke Telp. Rumah & Flexi",
+			  "price": 0
+			}
+		  ]
+		}
+	  },
       "topup": {
         "promo": {
           "xl": {

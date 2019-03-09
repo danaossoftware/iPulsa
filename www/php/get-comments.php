@@ -2,7 +2,7 @@
 include 'db.php';
 $start = intval($_POST["start"]);
 $feedId = $_POST["post-id"];
-$results = $c->query("SELECT * FROM comments WHERE feed_id='" . $feedId . "' SORT BY date DESC LIMIT " . $start . ",10");
+$results = $c->query("SELECT * FROM comments WHERE feed_id='" . $feedId . "'");
 $comments = [];
 if ($results && $results->num_rows > 0) {
     while ($row = $results->fetch_assoc()) {

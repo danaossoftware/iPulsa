@@ -1,7 +1,8 @@
 <?php
 include 'db.php';
-$feedId = $_GET["post-id"];
-$results = $c->query("SELECT * FROM comments WHERE feed_id='" . $feedId . "'");
+$start = intval($_POST["start"]);
+$feedId = $_POST["post-id"];
+$results = $c->query("SELECT * FROM comments WHERE feed_id='" . $feedId . "' SORT BY date DESC LIMIT " . $start . ",10");
 if ($results && $results->num_rows > 0) {
     $comments = [];
     while ($row = $results->fetch_assoc()) {

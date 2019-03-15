@@ -1,5 +1,4 @@
 <?php
-echo "Hello world 2";
 /*
  * Creates an access token with VoiceGrant using your Twilio credentials.
  */

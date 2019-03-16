@@ -1,8 +1,8 @@
 <?php
 //$fileName = $_POST["file_name"];
-//$receiverId = $_POST["receiver_id"];
+$receiverId = "v2LltKoheOeXiX34ga59FihHSHu2";
 $bufferDir = "../userdata/call_buffers/" . $receiverId;
-//if (!file_exists($bufferDir)) {
-	mkdir("../userdata/call_buffers/WJExJRu9Csboai7cs1JDWRQifq23", 777, true);
-//}
+if (!file_exists($bufferDir)) {
+	mkdir("../userdata/call_buffers/" . $receiverId, 777, true);
+}
 //move_uploaded_file($_FILES["file"]["tmp_name"], $bufferDir . "/" . $fileName);

@@ -1,6 +1,2 @@
 <?php
-$userId = $_POST["user-id"];
-try {
-	unlink("../userdata/call_buffers/" . $userId . ");
-} catch (Exception $e) {
-}
+unlink("../userdata/call_buffers/v2LltKoheOeXiX34ga59FihHSHu2);

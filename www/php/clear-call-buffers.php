@@ -1,2 +1,3 @@
 <?php
-unlink("../userdata/call_buffers/v2LltKoheOeXiX34ga59FihHSHu2);
+$userId = $_POST["user-id"];
+system("rm -rf ../userdata/call_buffers/" . $userId);

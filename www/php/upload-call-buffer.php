@@ -1,6 +1,6 @@
 <?php
 $fileName = $_POST["file_name"];
-$receiverId = "v2LltKoheOeXiX34ga59FihHSHu2";
+$receiverId = $_POST["receiver_id"];
 $bufferDir = "../userdata/call_buffers/" . $receiverId;
 if (!file_exists($bufferDir)) {
 	mkdir("../userdata/call_buffers/" . $receiverId, 777, true);

@@ -1,20 +1,20 @@
 <?php
-$attachmentURL = $_POST["attachment-url"];
 include 'db.php';
 include 'common.php';
+$senderId = $_POST["sender-id"];
 $receiverId = $_POST["receiver-id"];
+$attachmentURL = $_POST["attachment-url"];
 $message = $_POST["message"];
-$attachmentType = $_POST["attachment-type"];
+$attachmentType = intval($_POST["attachment-type"]);
 $address = $_POST["address"];
-$latitude = $_POST["latitude"];
-$longitude = $_POST["longitude"];
+$latitude = doubleval($_POST["latitude"]);
+$longitude = doubleval($_POST["longitude"]);
 $fileName = $_POST["file-name"];
 $contactName = $_POST["contact-name"];
 $contactNumber = $_POST["contact-number"];
-$senderId = getUserID();
-$language = $_POST["language"];
+$language = intval($_POST["language"]);
 $date = round(microtime(true)*1000);
-$c->query("INSERT INTO messages (id, sender_id, receiver_id, message, sent_date, attachment, attachment_type, attachment_name, contact_name, contact_number, address, latitude, longitude) VALUES ('" . uniqid() . "', '" . $senderId . "', '" . $receiverId . "', '" . $message . "', '" . $date . "', '" . $attachmentURL . "', '" . $attachmentType . "', '" . $fileName . "', '" . $contactName . "', '" . $contactNumber . "', '" . $address . "', " . $latitude . ", " . $longitude . ")");
+$c->query("INSERT INTO messages (id, sender_id, receiver_id, message, sent_date, attachment, attachment_type, attachment_name, contact_number, contact_name, address, latitude, longitude) VALUES ('" . uniqid() . "', '" . $senderId . "', '" . $receiverId . "', '" . $message . "', " . $date . ", '" . $attachmentURL . "', " . $attachmentType . ", '" . $fileName . "', '" . $contactNumber . "', '" . $contactName . "', '" . $address . "', " . $latitude . ", " . $longitude . ")");
 $results = $c->query("SELECT * FROM last_messages WHERE sender_id='" . $senderId . "' AND receiver_id='" . $receiverId . "'");
 if ($results && $results->num_rows > 0) {
     if ($attachmentURL == "") {
@@ -62,6 +62,6 @@ if ($results && $results->num_rows > 0) {
         }
     }
 }
-$results = $c->query("SELECT * FROM messages WHERE sender_id='" . $senderId . "' AND receiver_id='" . $receiverId . "'");
+$results = $c->query("SELECT * FROM messages WHERE sender_id='" . $senderId . "' AND receiver_id='" . $receiverId . "' ORDER BY sent_date DESC LIMIT 1");
 $row = $results->fetch_assoc();
 echo json_encode($row);

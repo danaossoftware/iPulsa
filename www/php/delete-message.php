@@ -1,4 +1,4 @@
 <?php
 include 'db.php';
-$messageId = $_GET["id"];
+$messageId = $_POST["id"];
 $c->query("DELETE FROM messages WHERE id='" . $messageId . "'");

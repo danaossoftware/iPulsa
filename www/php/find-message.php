@@ -16,7 +16,7 @@ $messages = [];
 $totalMessagesRead = 0;
 while (true) {
 	if ($totalMessagesRead >= $totalMessages) {
-		echo "";
+		echo "[]";
 		return;
 	}
 	$results = $c->query("SELECT * FROM messages WHERE sender_id='" . $senderId . "' AND receiver_id='" . $receiverId . "' ORDER BY sent_date DESC LIMIT " . $start . ",10");

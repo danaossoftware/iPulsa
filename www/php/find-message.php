@@ -14,8 +14,6 @@ $totalMessages += $results->num_rows;
 $start = 0;
 $messages = [];
 $totalMessagesRead = 0;
-echo $totalMessages;
-return;
 while (true) {
 	if ($totalMessagesRead >= $totalMessages) {
 		echo "";
